@@ -1,0 +1,19 @@
+{
+  "preset_name": "Pluralsight",
+  "language": "en-US",
+  "output_files": [
+    {
+      "format": "wav-24bit",
+      "bitrate": 0
+    }
+  ],
+  "algorithms": {
+    "hipfilter": true,
+    "leveler": true,
+    "normloudness": true,
+    "denoise": true,
+    "loudnesstarget": -19,
+    "denoise": false,
+    "denoiseamount": 0
+  }
+}
