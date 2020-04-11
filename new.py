@@ -3,41 +3,14 @@
 import json
 import os
 import time
-import requests
 import glob
-
-BASE_URL = "https://auphonic.com/api"
 
 
 def main():
 
-    # Collect username, password, and input directory from environment variables
-    username = os.environ.get("AUPHONIC_USERNAME")
-    if not username:
-        raise ValueError("Must define AUPHONIC_USERNAME environment variable")
+    auphonic = Auphonic()
 
-    password = os.environ.get("AUPHONIC_PASSWORD")
-    if not password:
-        raise ValueError("Must define AUPHONIC_PASSWORD environment variable")
-
-    # If not supplied, use the "auphonic" directory on the desktop
-    input_dir = os.environ.get("AUPHONIC_INPUT_DIR")
-    if not input_dir:
-        input_dir = f"{os.path.expanduser('~/Desktop')}/auphonic"
-        print(f"AUPHONIC_INPUT_DIR not supplied; using {input_dir}")
-
-    # Ensure the directory exists; creating it would be useless
-    if not os.path.exists(input_dir):
-        raise FileNotFoundError(f"input directory {input_dir} does not exist")
-
-    # Assemble HTTP basic auth 2-tuple for authentication
-    http_auth = (username, password)
-    session = requests.session()
-
-    # Get current presets
-    current_presets = to_dict(
-        session.get(f"{BASE_URL}/presets.json", auth=http_auth)
-    )
+    current_presents = auphonic.get("presets.json")
 
     # Search for preset in list of presets
     for preset in current_presets["data"]:
@@ -55,15 +28,9 @@ def main():
             preset_data = json.load(handle)
 
         # Create new preset and print UUID for confirmation
-        add_preset = to_dict(
-            session.post(
-                f"{BASE_URL}/presets.json", auth=http_auth, json=preset_data
-            )
-        )
+        add_preset = auphonic.post("presets.json", jsonbody=preset_data)
         preset_uuid = add_preset["data"]["uuid"]
         print(f"Preset added with UUID {preset_uuid}")
-
-    f = "test.wav"
 
     for input_file in glob.glob("*.wav"):
         print(f"\nStarting {input_file}")
@@ -71,13 +38,10 @@ def main():
         # Create the production body referencing the preset and extra metadata
         prod_data = {"preset": preset_uuid, "metadata": {"title": input_file}}
 
-    # Create a new production
-    add_prod = to_dict(
-        session.post(
-            f"{BASE_URL}/productions.json", auth=http_auth, json=prod_data
-        )
-    )
+        # Create a new production
+        add_prod = auphonic.post("productions.json", jsonbody=prod_data)
 
+    # TODO
     # Extract the production UUID so we can upload files and print confirmation
     prod_uuid = add_prod["data"]["uuid"]
     print(f"Production added with UUID {prod_uuid}")
