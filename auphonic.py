@@ -168,7 +168,7 @@ class Auphonic:
         producing audio.
         """
 
-        self._log(f"Starting  prod record record for {input_file}")
+        self._log(f"Starting  prod record for {input_file}")
 
         # Create the production body referencing the preset and extra metadata
         prod_data = {"preset": preset_uuid, "metadata": {"title": input_file}}

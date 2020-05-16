@@ -3,7 +3,7 @@
 2020-05-16 08:02:09.532686: Completed auphonic for user njrusmc, id 4379921432
 2020-05-16 08:02:09.533252: Starting  create preset for pluralsight
 2020-05-16 08:02:10.361957: Preset pluralsight already exists with UUID KjXfgYmDawztBZDWG8SjZR
-2020-05-16 08:02:10.370649: Starting  prod record record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-16 08:02:10.370649: Starting  prod record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
 2020-05-16 08:02:11.079343: Completed prod record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav, uuid NET5XJeHBMqfbRnd2RFYzf
 2020-05-16 08:02:11.079412: Starting  file upload for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
 2020-05-16 08:02:13.235270: Completed file upload for /Users/nicholasrusso/Desktop/auphonic/testfile.wav

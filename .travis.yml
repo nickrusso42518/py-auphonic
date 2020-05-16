@@ -1,0 +1,17 @@
+---
+language: "python"
+python:
+  - "3.6"
+
+# Install python packages, including linters
+install:
+  - "pip install -r requirements.txt"
+
+# Perform linting, and abandon execution if it fails
+before_script:
+  - "make lint"
+
+# Produce the test file (can add more test scripts later)
+script:
+  - "python produce.py"
+...
