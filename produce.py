@@ -27,8 +27,13 @@ def main():
 
     # Find all .wav files and iterate over the list. Ensure the downloaded
     # file size is greater than 50,000 bytes to avoid false positives
-    for input_file in auphonic.find_files("wav"):
-        assert auphonic.process_file(input_file, preset_uuid) > 50000
+    success_count = 0
+    wav_files = auphonic.find_files("wav")
+    for input_file in wav_files:
+        if auphonic.process_file(input_file, preset_uuid) > 50000:
+            success_count += 1
+
+    print(f"** Produced {success_count}/{len(wav_files)} files successfully **")
 
 
 if __name__ == "__main__":

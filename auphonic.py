@@ -8,10 +8,34 @@ via the REST API. See documentation here: https://auphonic.com/help/api/
 
 from datetime import datetime
 from glob import glob
+from enum import Enum
 import os
 import sys
 import time
 import requests
+
+
+class Status(Enum):
+    """
+    Enumerated status codes collected from this resource:
+    https://auphonic.com/api/info/production_status.json
+    """
+
+    FILE_UPLOAD = 0
+    WAITING = 1
+    ERROR = 2
+    DONE = 3
+    AUDIO_PROC = 4
+    AUDIO_ENC = 5
+    OUT_FILE_XFER = 6
+    MONO_MIX = 7
+    SPLIT_AUDIO = 8
+    INCOMPLETE = 9
+    NOT_STARTED = 10
+    OUTDATED = 11
+    IN_FILE_XFER = 12
+    STOP_PROD = 13
+    SPEECH_REC = 14
 
 
 class Auphonic:
@@ -202,6 +226,9 @@ class Auphonic:
         """
         Given a production and input file, begins the audio production process.
         It waits until the download URL is available, then returns that URL.
+        If an error occurs (or some other unsuccessful status code that
+        represents processing is complete), displays the error message
+        and returns None to signal failure.
         """
 
         # Start producing the audio. This API call is non-blocking
@@ -209,23 +236,25 @@ class Auphonic:
         self._log(f"Starting  audio prod for {prod_uuid}")
         self.post(f"production/{prod_uuid}/start.json")
 
-        # Keep looping until the download URL is populated and file size is set
-        download_url = None
-        filesize = 0
-        while not download_url or not filesize:
-            time.sleep(5)
-            self._log(f"Waiting   file DL URL for prod {prod_uuid}")
+        # Keep looping until the complete; either DONE or ERROR
+        # Intermediate steps may be WAITING, AUDIO_PROC, or AUDIO_ENC
+        cur_status = Status.WAITING
+        while cur_status not in [Status.DONE, Status.ERROR]:
+            time.sleep(3)
+            self._log(f"{Status(cur_status)} file DL URL for prod {prod_uuid}")
             start_prod = self.get(f"production/{prod_uuid}.json")
+            cur_status = Status(start_prod["data"]["status"])
+
+        # Success; return the download URL for use later
+        if cur_status == Status.DONE:
             download_url = start_prod["data"]["output_files"][0]["download_url"]
-            filesize = start_prod["data"]["output_files"][0]["size"]
+            self._log(f"{Status(cur_status)} for {prod_uuid} - {download_url}")
+            return download_url
 
-        # Grab the checksum as well in case users want to manually confirm
-        checksum = start_prod["data"]["output_files"][0]["checksum"]
-        self._log(f"Completed audio prod for {prod_uuid}, DL URL {download_url}")
-        self._log(f"Metadata: checksum {checksum}, size in bytes {filesize}")
-
-        # Return the download URL so the file can be retrieved later
-        return download_url
+        # Error occurred; log error message and return None
+        error_msg = start_prod["data"]["error_message"]
+        self._log(f"{Status(cur_status)} for {prod_uuid} - {error_msg}")
+        return None
 
     def download_file(self, download_url):
         """
@@ -250,7 +279,7 @@ class Auphonic:
 
         # Extract the filesize in bytes (parse int from str) for confirmation
         size_bytes = int(dl_file.headers["Content-Length"])
-        self._log(f"Completed  file download from URL {download_url}")
+        self._log(f"Completed file download from URL {download_url}")
         self._log(f"Outfile {outfile} size: {size_bytes} bytes")
 
         return size_bytes
@@ -262,11 +291,17 @@ class Auphonic:
           1. Creates a new production for the file
           2. Uploads the file
           3. Produces audio for the file
-          4. Downfiles the Auphonic output file
+          4. Downfiles the Auphonic output file if the previous step succeeded
         """
 
         # Perform the aforementioned steps in sequence
         prod_uuid = self.create_production(input_file, preset_uuid)
         self.upload_file(input_file, prod_uuid)
         download_url = self.produce_audio(prod_uuid)
-        return self.download_file(download_url)
+
+        # Only try to download the file if the processing succeeded
+        if download_url:
+            return self.download_file(download_url)
+
+        # 0 bytes produced; signals failure
+        return 0

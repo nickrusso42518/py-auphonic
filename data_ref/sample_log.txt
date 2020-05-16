@@ -1,21 +1,19 @@
-2020-05-16 08:02:09.532300: Creating  auphonic for user njrusmc, id 4379921432
-2020-05-16 08:02:09.532634: Assigned  input_dir /Users/nicholasrusso/Desktop/auphonic, id 4379921432
-2020-05-16 08:02:09.532686: Completed auphonic for user njrusmc, id 4379921432
-2020-05-16 08:02:09.533252: Starting  create preset for pluralsight
-2020-05-16 08:02:10.361957: Preset pluralsight already exists with UUID KjXfgYmDawztBZDWG8SjZR
-2020-05-16 08:02:10.370649: Starting  prod record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
-2020-05-16 08:02:11.079343: Completed prod record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav, uuid NET5XJeHBMqfbRnd2RFYzf
-2020-05-16 08:02:11.079412: Starting  file upload for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
-2020-05-16 08:02:13.235270: Completed file upload for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
-2020-05-16 08:02:13.235333: Starting  audio prod for NET5XJeHBMqfbRnd2RFYzf
-2020-05-16 08:02:18.693334: Waiting   file DL URL for prod NET5XJeHBMqfbRnd2RFYzf
-2020-05-16 08:02:24.177718: Waiting   file DL URL for prod NET5XJeHBMqfbRnd2RFYzf
-2020-05-16 08:02:29.495190: Waiting   file DL URL for prod NET5XJeHBMqfbRnd2RFYzf
-2020-05-16 08:02:34.920914: Waiting   file DL URL for prod NET5XJeHBMqfbRnd2RFYzf
-2020-05-16 08:02:40.347768: Waiting   file DL URL for prod NET5XJeHBMqfbRnd2RFYzf
-2020-05-16 08:02:45.820641: Waiting   file DL URL for prod NET5XJeHBMqfbRnd2RFYzf
-2020-05-16 08:02:46.130354: Completed audio prod for NET5XJeHBMqfbRnd2RFYzf, DL URL https://auphonic.com/api/download/audio-result/NET5XJeHBMqfbRnd2RFYzf/testfile.wav
-2020-05-16 08:02:46.130411: Metadata: checksum d03e52657ed025449de3df4c7f3bf40d, size in bytes 1446632
-2020-05-16 08:02:46.130434: Starting  file download from URL https://auphonic.com/api/download/audio-result/NET5XJeHBMqfbRnd2RFYzf/testfile.wav
-2020-05-16 08:02:47.568773: Completed  file download from URL https://auphonic.com/api/download/audio-result/NET5XJeHBMqfbRnd2RFYzf/testfile.wav
-2020-05-16 08:02:47.568844: Outfile /Users/nicholasrusso/Desktop/auphonic/auphonic-results/auphonic-testfile.wav size: 1446632 bytes
+2020-05-16 09:45:20.804312: Creating  auphonic for user njrusmc, id 4340829264
+2020-05-16 09:45:20.804601: Assigned  input_dir /Users/nicholasrusso/Desktop/auphonic, id 4340829264
+2020-05-16 09:45:20.804809: Completed auphonic for user njrusmc, id 4340829264
+2020-05-16 09:45:20.805280: Starting  create preset for pluralsight
+2020-05-16 09:45:21.486613: Preset pluralsight already exists with UUID KjXfgYmDawztBZDWG8SjZR
+2020-05-16 09:45:21.487159: Starting  prod record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-16 09:45:21.913956: Completed prod record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav, uuid LRcSH4w5SJjBBvAAtNSgUH
+2020-05-16 09:45:21.914029: Starting  file upload for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-16 09:45:23.844315: Completed file upload for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-16 09:45:23.844376: Starting  audio prod for LRcSH4w5SJjBBvAAtNSgUH
+2020-05-16 09:45:27.357095: Status.WAITING file DL URL for prod LRcSH4w5SJjBBvAAtNSgUH
+2020-05-16 09:45:30.839526: Status.AUDIO_PROC file DL URL for prod LRcSH4w5SJjBBvAAtNSgUH
+2020-05-16 09:45:34.246450: Status.AUDIO_PROC file DL URL for prod LRcSH4w5SJjBBvAAtNSgUH
+2020-05-16 09:45:37.804143: Status.AUDIO_ENC file DL URL for prod LRcSH4w5SJjBBvAAtNSgUH
+2020-05-16 09:45:38.180215: Status.DONE for LRcSH4w5SJjBBvAAtNSgUH - https://auphonic.com/api/download/audio-result/LRcSH4w5SJjBBvAAtNSgUH/testfile.wav
+2020-05-16 09:45:38.180291: Starting  file download from URL https://auphonic.com/api/download/audio-result/LRcSH4w5SJjBBvAAtNSgUH/testfile.wav
+2020-05-16 09:45:39.379403: Completed file download from URL https://auphonic.com/api/download/audio-result/LRcSH4w5SJjBBvAAtNSgUH/testfile.wav
+2020-05-16 09:45:39.379454: Outfile /Users/nicholasrusso/Desktop/auphonic/auphonic-results/auphonic-testfile.wav size: 1446632 bytes
+** Produced 1/1 files successfully **
