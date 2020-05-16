@@ -1,0 +1,124 @@
+{
+  "status_code": 200,
+  "error_code": null,
+  "error_message": "",
+  "form_errors": {},
+  "data": [
+    {
+      "uuid": "KjXfgYmDawztBZDWG8SjZR",
+      "image": null,
+      "thumbnail": null,
+      "creation_time": "2020-04-11T23:22:27.717Z",
+      "preset_name": "Pluralsight",
+      "output_files": [
+        {
+          "format": "wav-24bit",
+          "bitrate": 0,
+          "mono_mixdown": false,
+          "split_on_chapters": false,
+          "suffix": "",
+          "ending": "wav",
+          "filename": "",
+          "size": 0,
+          "checksum": "",
+          "size_string": "",
+          "download_url": null,
+          "outgoing_services": []
+        }
+      ],
+      "outgoing_services": [],
+      "metadata": {
+        "album": "",
+        "subtitle": "",
+        "license": "",
+        "summary": "",
+        "artist": "",
+        "track": "",
+        "title": "",
+        "publisher": "",
+        "url": "",
+        "license_url": "",
+        "year": "",
+        "genre": "",
+        "append_chapters": false,
+        "tags": [
+          ""
+        ],
+        "location": {
+          "longitude": null,
+          "latitude": null
+        }
+      },
+      "algorithms": {
+        "hipfilter": true,
+        "leveler": true,
+        "normloudness": true,
+        "loudnesstarget": -19,
+        "denoise": false,
+        "denoiseamount": 0
+      },
+      "output_basename": "",
+      "webhook": null,
+      "multi_input_files": [],
+      "is_multitrack": false
+    },
+    {
+      "uuid": "MrEGEp7cXJBU3jc3mUMTe3",
+      "image": null,
+      "thumbnail": null,
+      "creation_time": "2019-11-25T12:25:49.992Z",
+      "preset_name": "fiftypieces",
+      "output_files": [
+        {
+          "format": "mp3",
+          "bitrate": 192,
+          "mono_mixdown": false,
+          "split_on_chapters": false,
+          "suffix": "",
+          "ending": "mp3",
+          "filename": "",
+          "size": 0,
+          "checksum": "",
+          "size_string": "",
+          "download_url": null,
+          "outgoing_services": []
+        }
+      ],
+      "outgoing_services": [],
+      "metadata": {
+        "album": "Fifty Pieces of Gold",
+        "subtitle": "An Engineer\u2019s Musings on Business and Life",
+        "license": "Nicholas Russo 2019",
+        "summary": "I've been writing about technology for a long time. I decided to take a fresh approach by writing about the other 90% of things that interest me by consolidating a year's worth of blog posts into this book.",
+        "artist": "Nick Russo",
+        "track": "",
+        "title": "",
+        "publisher": "Leanpub",
+        "url": "http://njrusmc.net",
+        "license_url": "http://njrusmc.net",
+        "year": "2019",
+        "genre": "Self Improvement",
+        "append_chapters": false,
+        "tags": [
+          ""
+        ],
+        "location": {
+          "longitude": null,
+          "latitude": null
+        }
+      },
+      "algorithms": {
+        "hipfilter": true,
+        "leveler": true,
+        "normloudness": true,
+        "loudnesstarget": -19,
+        "denoise": false,
+        "denoiseamount": 0
+      },
+      "output_basename": "",
+      "webhook": null,
+      "multi_input_files": [],
+      "is_multitrack": false
+    }
+  ]
+}

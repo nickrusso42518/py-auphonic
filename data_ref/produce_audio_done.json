@@ -1,0 +1,189 @@
+{
+  "status_code": 200,
+  "error_code": null,
+  "error_message": "",
+  "form_errors": {},
+  "data": {
+    "uuid": "qAgrWNDb4HFCnbi6LU37UC",
+    "status": 3,
+    "error_status": null,
+    "error_message": "",
+    "warning_status": null,
+    "warning_message": "",
+    "status_string": "Done",
+    "image": null,
+    "thumbnail": null,
+    "creation_time": "2020-05-16T11:25:27.124Z",
+    "change_time": "2020-05-16T11:25:47.444Z",
+    "output_files": [
+      {
+        "format": "wav-24bit",
+        "bitrate": 0,
+        "mono_mixdown": false,
+        "split_on_chapters": false,
+        "suffix": "",
+        "ending": "wav",
+        "filename": "testfile.wav",
+        "size": 1446632,
+        "checksum": "d03e52657ed025449de3df4c7f3bf40d",
+        "size_string": "1.4 MB",
+        "download_url": "https://auphonic.com/api/download/audio-result/qAgrWNDb4HFCnbi6LU37UC/testfile.wav",
+        "outgoing_services": []
+      }
+    ],
+    "outgoing_services": [],
+    "metadata": {
+      "album": "",
+      "subtitle": "",
+      "license": "",
+      "summary": "",
+      "artist": "",
+      "track": "",
+      "title": "/Users/nicholasrusso/Desktop/auphonic/testfile.wav",
+      "publisher": "",
+      "url": "",
+      "license_url": "",
+      "year": "",
+      "genre": "",
+      "append_chapters": false,
+      "tags": [
+        ""
+      ],
+      "location": {
+        "longitude": null,
+        "latitude": null
+      }
+    },
+    "chapters": [],
+    "input_file": "testfile.wav",
+    "algorithms": {
+      "hipfilter": true,
+      "leveler": true,
+      "normloudness": true,
+      "loudnesstarget": -19,
+      "denoise": false,
+      "denoiseamount": 0
+    },
+    "length": 5.46666666666667,
+    "length_timestring": "00:00:05.466",
+    "channels": 2,
+    "samplerate": 44100,
+    "bitrate": 1411.2,
+    "webhook": null,
+    "format": "pcm_s16le",
+    "has_video": false,
+    "cut_start": 0.0,
+    "cut_end": 0.0,
+    "waveform_image": "https://auphonic.com/api/download/audio-result/qAgrWNDb4HFCnbi6LU37UC/waveform.png",
+    "output_basename": "testfile",
+    "start_allowed": false,
+    "change_allowed": true,
+    "service": null,
+    "status_page": "https://auphonic.com/engine/status/qAgrWNDb4HFCnbi6LU37UC",
+    "edit_page": "https://auphonic.com/engine/upload/edit/qAgrWNDb4HFCnbi6LU37UC",
+    "multi_input_files": [],
+    "statistics": {
+      "levels": {
+        "input": {
+          "signal_level": [
+            -18.92,
+            "dB"
+          ],
+          "noise_level": [
+            -71.45,
+            "dB"
+          ],
+          "snr": [
+            52.53,
+            "dB"
+          ],
+          "loudness": [
+            -21.02,
+            "LUFS"
+          ],
+          "max_momentary": [
+            -18.36,
+            "LUFS"
+          ],
+          "max_shortterm": [
+            -20.72,
+            "LUFS"
+          ],
+          "lra": [
+            1.02,
+            "LU"
+          ],
+          "speech_loudness": [
+            -21.02,
+            "LUFS"
+          ],
+          "speech_lra": [
+            1.02,
+            "LU"
+          ]
+        },
+        "output": {
+          "loudness": [
+            -19.0,
+            "LUFS"
+          ],
+          "lra": [
+            0.58,
+            "LU"
+          ],
+          "max_momentary": [
+            -16.74,
+            "LUFS"
+          ],
+          "max_shortterm": [
+            -18.7,
+            "LUFS"
+          ],
+          "gain_mean": [
+            1.77,
+            "dB"
+          ],
+          "gain_min": [
+            1.53,
+            "dB"
+          ],
+          "gain_max": [
+            1.9,
+            "dB"
+          ],
+          "peak": [
+            -7.03,
+            "dBTP"
+          ],
+          "plr": [
+            11.97,
+            "LU"
+          ]
+        }
+      },
+      "music_speech": [
+        {
+          "start_sec": 0.0,
+          "start": "00:00:00.000",
+          "stop_sec": 5.467,
+          "stop": "00:00:05.466",
+          "label": "speech"
+        }
+      ],
+      "format": {
+        "length_sec": 5.466666666666667,
+        "channels": 2,
+        "samplerate": 44100,
+        "bitrate": 1411.2,
+        "format": "pcm_s16le"
+      }
+    },
+    "used_credits": {
+      "recurring": 0.0,
+      "onetime": 0.05,
+      "combined": 0.05
+    },
+    "is_multitrack": false,
+    "speech_recognition": null
+  }
+}

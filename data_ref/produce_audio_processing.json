@@ -1,0 +1,90 @@
+{
+  "status_code": 200,
+  "error_code": null,
+  "error_message": "",
+  "form_errors": {},
+  "data": {
+    "uuid": "qAgrWNDb4HFCnbi6LU37UC",
+    "status": 4,
+    "error_status": null,
+    "error_message": "",
+    "warning_status": null,
+    "warning_message": "",
+    "status_string": "Audio Processing",
+    "image": null,
+    "thumbnail": null,
+    "creation_time": "2020-05-16T11:25:27.124Z",
+    "change_time": "2020-05-16T11:25:43.375Z",
+    "output_files": [
+      {
+        "format": "wav-24bit",
+        "bitrate": 0,
+        "mono_mixdown": false,
+        "split_on_chapters": false,
+        "suffix": "",
+        "ending": "wav",
+        "filename": "",
+        "size": 0,
+        "checksum": "",
+        "size_string": "",
+        "download_url": null,
+        "outgoing_services": []
+      }
+    ],
+    "outgoing_services": [],
+    "metadata": {
+      "album": "",
+      "subtitle": "",
+      "license": "",
+      "summary": "",
+      "artist": "",
+      "track": "",
+      "title": "/Users/nicholasrusso/Desktop/auphonic/testfile.wav",
+      "publisher": "",
+      "url": "",
+      "license_url": "",
+      "year": "",
+      "genre": "",
+      "append_chapters": false,
+      "tags": [
+        ""
+      ],
+      "location": {
+        "longitude": null,
+        "latitude": null
+      }
+    },
+    "chapters": [],
+    "input_file": "testfile.wav",
+    "algorithms": {
+      "hipfilter": true,
+      "leveler": true,
+      "normloudness": true,
+      "loudnesstarget": -19,
+      "denoise": false,
+      "denoiseamount": 0
+    },
+    "length": 5.46666666666667,
+    "length_timestring": "00:00:05.466",
+    "channels": 2,
+    "samplerate": 44100,
+    "bitrate": 1411.2,
+    "webhook": null,
+    "format": "pcm_s16le",
+    "has_video": false,
+    "cut_start": 0.0,
+    "cut_end": 0.0,
+    "waveform_image": "https://auphonic.com/api/download/audio-result/qAgrWNDb4HFCnbi6LU37UC/waveform.png",
+    "output_basename": "testfile",
+    "start_allowed": false,
+    "change_allowed": false,
+    "service": null,
+    "status_page": "https://auphonic.com/engine/status/qAgrWNDb4HFCnbi6LU37UC",
+    "edit_page": "https://auphonic.com/engine/upload/edit/qAgrWNDb4HFCnbi6LU37UC",
+    "multi_input_files": [],
+    "statistics": null,
+    "used_credits": null,
+    "is_multitrack": false,
+    "speech_recognition": null
+  }
+}

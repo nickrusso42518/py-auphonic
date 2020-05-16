@@ -7,7 +7,7 @@ test: clean lint run
 lint:
 	@echo "Starting  lint"
 	find . -name "*.py" | xargs pylint
-	find . -name "*.py" | xargs black -l 80 --check
+	find . -name "*.py" | xargs black -l 82 --check
 	@echo "Completed lint"
 
 .PHONY: run

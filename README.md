@@ -1,10 +1,9 @@
-# Pluralsight Auphonic Automation
+# Python Library for Auphonic
 
-on desktop, "auphonic"
-
-create subdir named "auphonic-results"
+These docs are horrible right now, sorry.
 
 ```
 export AUPHONIC_USERNAME=<your username>
 export AUPHONIC_PASSWORD=<your password>
+export AUPHONIC_INPUT_DIR=<where to find input files>
 ```

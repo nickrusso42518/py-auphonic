@@ -6,8 +6,10 @@ Purpose: A simple Python client library for interacting with Auphonic
 via the REST API. See documentation here: https://auphonic.com/help/api/
 """
 
+from datetime import datetime
+from glob import glob
 import os
-import glob
+import sys
 import time
 import requests
 
@@ -17,22 +19,19 @@ class Auphonic:
     Stateful handler for the Auphonic REST API.
     """
 
-    def __init__(self):
+    def __init__(self, username, password, input_dir=None, debug=True):
         """
         Constructor loads in environment variables, checks input directory,
         creates output directory, and stores attributes for use later.
+        The "debug" option enables status messages (true by default).
         """
-        # Collect username, password, and input directory from env vars
-        username = os.environ.get("AUPHONIC_USERNAME")
-        if not username:
-            raise ValueError("Must define AUPHONIC_USERNAME environment var")
 
-        password = os.environ.get("AUPHONIC_PASSWORD")
-        if not password:
-            raise ValueError("Must define AUPHONIC_PASSWORD environment var")
+        # Store the debug option and begin logging
+        self.debug = debug
+        _id = id(self)
+        self._log(f"Creating  auphonic for user {username}, id {_id}")
 
         # If not supplied, use the "auphonic" directory on the desktop
-        input_dir = os.environ.get("AUPHONIC_INPUT_DIR")
         if not input_dir:
             input_dir = f"{os.path.expanduser('~/Desktop')}/auphonic"
             print(f"AUPHONIC_INPUT_DIR not supplied; using {input_dir}")
@@ -45,13 +44,48 @@ class Auphonic:
         self.http_auth = (username, password)
         self.input_dir = input_dir
         self.session = requests.session()
+        self._log(f"Assigned  input_dir {input_dir}, id {_id}")
 
         # Build output directory
         self.output_dir = f"{self.input_dir}/auphonic-results"
         if not os.path.exists(self.output_dir):
             os.makedirs(self.output_dir)
 
-    def _req(self, resource, method, jsonbody=None, files=None):
+        self._log(f"Completed auphonic for user {username}, id {_id}")
+
+    @staticmethod
+    def build_from_env_vars():
+        """
+        Static class-level helper method to quickly create a new Auhponic
+        object using environment variables:
+          1. AUPHONIC_USERNAME: Your personal username for Auphonic
+          2. AUPHONIC_PASSWORD: Your personal password for Auphonic
+          3. AUPHONIC_INPUT_DIR: Local path to audio input files (optional)
+        """
+
+        # Collect username, password, and input directory from env vars
+        username = os.environ.get("AUPHONIC_USERNAME")
+        if not username:
+            raise ValueError("Must define AUPHONIC_USERNAME environment var")
+
+        password = os.environ.get("AUPHONIC_PASSWORD")
+        if not password:
+            raise ValueError("Must define AUPHONIC_PASSWORD environment var")
+
+        input_dir = input_dir = os.environ.get("AUPHONIC_INPUT_DIR")
+
+        # Create and return new Auphonic object
+        return Auphonic(username, password, input_dir)
+
+    def _log(self, message):
+        """
+        When debug is enabled, prints a timestampped log message containing
+        the supplied text. When debug is false, does nothing.
+        """
+        if self.debug:
+            print(f"{datetime.now()}: {message}", file=sys.stderr)
+
+    def request(self, resource, method, jsonbody=None, files=None):
         """
         Basic wrapper for requests using existing authentication, base URL,
         and other attributes for simplicity.
@@ -75,25 +109,121 @@ class Auphonic:
         """
         Issue a GET request to Auphonic for a given resource.
         """
-        return self._req(method="get", resource=resource)
+        return self.request(method="get", resource=resource)
 
     def post(self, resource, jsonbody=None, files=None):
         """
         Issue a POST request to Auphonic for a given resource. This can include
         a JSON body or files for uploading.
         """
-        return self._req(
+        return self.request(
             method="post", resource=resource, jsonbody=jsonbody, files=files
         )
+
+    def create_preset(self, new_preset):
+        """
+        Creates a new preset using the supplied dictionary. If the preset
+        already exists, nothing happens. Otherwise, a new preset is created.
+        """
+
+        # Perform a quick check to ensure the preset has a required key
+        if "preset_name" not in new_preset.keys():
+            raise ValueError("Preset is missing required 'preset_name' key")
+
+        # Store preset name and collect list of current presets
+        new_name = new_preset["preset_name"].lower()
+        self._log(f"Starting  create preset for {new_name}")
+        current_presets = self.get("presets.json")
+
+        # Search for preset in list of presets
+        for preset in current_presets["data"]:
+            if preset["preset_name"].lower() == new_name:
+                uuid = preset["uuid"]
+                self._log(f"Preset {new_name} already exists with UUID {uuid}")
+                break
+
+        # For loop exhaused and did not find preset; create new one
+        else:
+
+            # Create new preset and print UUID for confirmation
+            self._log(f"Preset {new_name} not found; creating now")
+            add_preset = self.post("presets.json", jsonbody=new_preset)
+            uuid = add_preset["data"]["uuid"]
+            self._log(f"Preset {new_name} added with UUID {uuid}")
+
+        # Return the preset UUID for reference later
+        return uuid
 
     def find_files(self, file_extension):
         """
         Search for files in the input directory for a given file extension.
         Examples include "wav" or "mp3".
         """
-        return glob.glob(f"{self.input_dir}/*.{file_extension}")
+        return glob(f"{self.input_dir}/*.{file_extension}")
 
-    def download_file(self, prod_uuid):
+    def create_production(self, input_file, preset_uuid):
+        """
+        Creates a new, empty production to encapsulate a given input_file
+        using an existing preset. Returns the production UUID which is
+        used for follow-on activities such as uploading files and
+        producing audio.
+        """
+
+        self._log(f"Starting  prod record record for {input_file}")
+
+        # Create the production body referencing the preset and extra metadata
+        prod_data = {"preset": preset_uuid, "metadata": {"title": input_file}}
+
+        # Create a new production and extract the production UUID
+        add_prod = self.post("productions.json", jsonbody=prod_data)
+
+        prod_uuid = add_prod["data"]["uuid"]
+        self._log(f"Completed prod record for {input_file}, uuid {prod_uuid}")
+
+        # Return the production UUID for reference later
+        return prod_uuid
+
+    def upload_file(self, input_file, prod_uuid):
+        """
+        Populate an existing production, referenced by UUID, with the
+        specified input file. This method blocks until the upload
+        is complete (synchronous).
+        """
+
+        # Upload a file data, NOT a JSON payload nor a filename string
+        self._log(f"Starting  file upload for {input_file}")
+        with open(input_file, "rb") as handle:
+            self.post(
+                f"production/{prod_uuid}/upload.json",
+                files={"input_file": handle},
+            )
+        self._log(f"Completed file upload for {input_file}")
+
+    def produce_audio(self, prod_uuid):
+        """
+        Given a production and input file, begins the audio production process.
+        It waits until the download URL is available, then returns that URL.
+        """
+
+        # Start producing the audio. This API call is non-blocking
+        # (asynchronous) and we must wait until the "download_url" is present
+        self._log(f"Starting  audio prod for {prod_uuid}")
+        self.post(f"production/{prod_uuid}/start.json")
+
+        # Keep looping until the download URL is populated
+        download_url = None
+        while not download_url:
+            time.sleep(5)
+            self._log(f"Waiting   file DL URL for prod {prod_uuid}")
+            start_prod = self.get(f"production/{prod_uuid}.json")
+            download_url = start_prod["data"]["output_files"][0]["download_url"]
+
+        self._log(f"Completed audio prod for {prod_uuid}, DL URL {download_url}")
+
+        # Return the download URL so the file can be retrieved later
+        return download_url
+
+    def download_file(self, download_url):
         """
         Performs the complex actions needed to download a file from
         a given production. This assumes that there is only one file
@@ -101,19 +231,38 @@ class Auphonic:
         prefixed with "auphonic-" to differentiate it from the source.
         """
 
-        # Keep looping until the download URL is populated
-        dl_url = None
-        while not dl_url:
-            time.sleep(2)
-            start_prod = self.get(f"production/{prod_uuid}.json")
-            dl_url = start_prod["data"]["output_files"][0]["download_url"]
+        self._log(f"Starting  file download from URL {download_url}")
 
         # Download the file using the download URL. Cannot use get()
         # helper as it will include the base_url twice
-        dl_file = self.session.get(dl_url, auth=self.http_auth)
+        dl_file = self.session.get(download_url, auth=self.http_auth)
 
         # Determine the original filename by extracting it from the URL, then
         # write the auphonic-(orig_file) file to disk
         orig_file = dl_file.url.split("/")[-1]
-        with open(f"{self.output_dir}/auphonic-{orig_file}", "wb") as handle:
+        outfile = f"{self.output_dir}/auphonic-{orig_file}"
+        with open(outfile, "wb") as handle:
             handle.write(dl_file.content)
+
+        # Extract the filesize in bytes (parse int from str) for confirmation
+        size_bytes = int(dl_file.headers["Content-Length"])
+        self._log(f"Completed  file download from URL {download_url}")
+        self._log(f"Outfile {outfile} size: {size_bytes} bytes")
+
+        return size_bytes
+
+    def process_file(self, input_file, preset_uuid):
+        """
+        Executes a common workflow to process a single audio file using
+        the parameters in a given preset. Returns the file size in bytes.
+          1. Creates a new production for the file
+          2. Uploads the file
+          3. Produces audio for the file
+          4. Downfiles the Auphonic output file
+        """
+
+        # Perform the aforementioned steps in sequence
+        prod_uuid = self.create_production(input_file, preset_uuid)
+        self.upload_file(input_file, prod_uuid)
+        download_url = self.produce_audio(prod_uuid)
+        return self.download_file(download_url)
