@@ -14,6 +14,7 @@ lint:
 run:
 	@echo "Starting  run"
 	python produce.py
+	tree ~/Desktop/auphonic/
 	@echo "Completed  run"
 
 .PHONY: clean

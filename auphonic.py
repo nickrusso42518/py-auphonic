@@ -34,7 +34,6 @@ class Auphonic:
         # If not supplied, use the "auphonic" directory on the desktop
         if not input_dir:
             input_dir = f"{os.path.expanduser('~/Desktop')}/auphonic"
-            print(f"AUPHONIC_INPUT_DIR not supplied; using {input_dir}")
 
         # Ensure the directory exists; creating it would be useless
         if not os.path.exists(input_dir):
@@ -54,7 +53,7 @@ class Auphonic:
         self._log(f"Completed auphonic for user {username}, id {_id}")
 
     @staticmethod
-    def build_from_env_vars():
+    def build_from_env_vars(debug=True):
         """
         Static class-level helper method to quickly create a new Auhponic
         object using environment variables:
@@ -75,7 +74,7 @@ class Auphonic:
         input_dir = input_dir = os.environ.get("AUPHONIC_INPUT_DIR")
 
         # Create and return new Auphonic object
-        return Auphonic(username, password, input_dir)
+        return Auphonic(username, password, input_dir, debug)
 
     def _log(self, message):
         """
@@ -210,15 +209,20 @@ class Auphonic:
         self._log(f"Starting  audio prod for {prod_uuid}")
         self.post(f"production/{prod_uuid}/start.json")
 
-        # Keep looping until the download URL is populated
+        # Keep looping until the download URL is populated and file size is set
         download_url = None
-        while not download_url:
+        filesize = 0
+        while not download_url or not filesize:
             time.sleep(5)
             self._log(f"Waiting   file DL URL for prod {prod_uuid}")
             start_prod = self.get(f"production/{prod_uuid}.json")
             download_url = start_prod["data"]["output_files"][0]["download_url"]
+            filesize = start_prod["data"]["output_files"][0]["size"]
 
+        # Grab the checksum as well in case users want to manually confirm
+        checksum = start_prod["data"]["output_files"][0]["checksum"]
         self._log(f"Completed audio prod for {prod_uuid}, DL URL {download_url}")
+        self._log(f"Metadata: checksum {checksum}, size in bytes {filesize}")
 
         # Return the download URL so the file can be retrieved later
         return download_url

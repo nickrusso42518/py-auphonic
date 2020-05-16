@@ -1,0 +1,21 @@
+2020-05-16 08:02:09.532300: Creating  auphonic for user njrusmc, id 4379921432
+2020-05-16 08:02:09.532634: Assigned  input_dir /Users/nicholasrusso/Desktop/auphonic, id 4379921432
+2020-05-16 08:02:09.532686: Completed auphonic for user njrusmc, id 4379921432
+2020-05-16 08:02:09.533252: Starting  create preset for pluralsight
+2020-05-16 08:02:10.361957: Preset pluralsight already exists with UUID KjXfgYmDawztBZDWG8SjZR
+2020-05-16 08:02:10.370649: Starting  prod record record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-16 08:02:11.079343: Completed prod record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav, uuid NET5XJeHBMqfbRnd2RFYzf
+2020-05-16 08:02:11.079412: Starting  file upload for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-16 08:02:13.235270: Completed file upload for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-16 08:02:13.235333: Starting  audio prod for NET5XJeHBMqfbRnd2RFYzf
+2020-05-16 08:02:18.693334: Waiting   file DL URL for prod NET5XJeHBMqfbRnd2RFYzf
+2020-05-16 08:02:24.177718: Waiting   file DL URL for prod NET5XJeHBMqfbRnd2RFYzf
+2020-05-16 08:02:29.495190: Waiting   file DL URL for prod NET5XJeHBMqfbRnd2RFYzf
+2020-05-16 08:02:34.920914: Waiting   file DL URL for prod NET5XJeHBMqfbRnd2RFYzf
+2020-05-16 08:02:40.347768: Waiting   file DL URL for prod NET5XJeHBMqfbRnd2RFYzf
+2020-05-16 08:02:45.820641: Waiting   file DL URL for prod NET5XJeHBMqfbRnd2RFYzf
+2020-05-16 08:02:46.130354: Completed audio prod for NET5XJeHBMqfbRnd2RFYzf, DL URL https://auphonic.com/api/download/audio-result/NET5XJeHBMqfbRnd2RFYzf/testfile.wav
+2020-05-16 08:02:46.130411: Metadata: checksum d03e52657ed025449de3df4c7f3bf40d, size in bytes 1446632
+2020-05-16 08:02:46.130434: Starting  file download from URL https://auphonic.com/api/download/audio-result/NET5XJeHBMqfbRnd2RFYzf/testfile.wav
+2020-05-16 08:02:47.568773: Completed  file download from URL https://auphonic.com/api/download/audio-result/NET5XJeHBMqfbRnd2RFYzf/testfile.wav
+2020-05-16 08:02:47.568844: Outfile /Users/nicholasrusso/Desktop/auphonic/auphonic-results/auphonic-testfile.wav size: 1446632 bytes
