@@ -1,0 +1,17 @@
+2020-05-17 19:47:59 INFO     Creating auphonic for user njrusmc, id 4324056144
+2020-05-17 19:47:59 INFO     Assigned input_dir /Users/nicholasrusso/Desktop/auphonic, id 4324056144
+2020-05-17 19:47:59 INFO     Completed auphonic for user njrusmc, id 4324056144
+2020-05-17 19:47:59 INFO     Starting create preset for pluralsight
+2020-05-17 19:48:00 INFO     Preset pluralsight already exists with UUID KjXfgYmDawztBZDWG8SjZR
+2020-05-17 19:48:00 INFO     Starting prod record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-17 19:48:01 INFO     Completed prod record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav, uuid qfHtfcam5VtjhB435qPbKF
+2020-05-17 19:48:01 INFO     Starting file upload for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-17 19:48:05 INFO     Completed file upload for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-17 19:48:05 INFO     Starting  audio prod for qfHtfcam5VtjhB435qPbKF
+2020-05-17 19:48:08 INFO     Status.WAITING file DL URL for prod qfHtfcam5VtjhB435qPbKF
+2020-05-17 19:48:12 INFO     Status.AUDIO_PROC file DL URL for prod qfHtfcam5VtjhB435qPbKF
+2020-05-17 19:48:15 INFO     Status.AUDIO_ENC file DL URL for prod qfHtfcam5VtjhB435qPbKF
+2020-05-17 19:48:16 INFO     Status.DONE for qfHtfcam5VtjhB435qPbKF - https://auphonic.com/api/download/audio-result/qfHtfcam5VtjhB435qPbKF/testfile.wav
+2020-05-17 19:48:16 INFO     Starting file download from URL https://auphonic.com/api/download/audio-result/qfHtfcam5VtjhB435qPbKF/testfile.wav
+2020-05-17 19:48:17 INFO     Completed file download from URL https://auphonic.com/api/download/audio-result/qfHtfcam5VtjhB435qPbKF/testfile.wav
+2020-05-17 19:48:17 INFO     Outfile /Users/nicholasrusso/Desktop/auphonic/auphonic-results/auphonic-testfile.wav size: 1446632 bytes

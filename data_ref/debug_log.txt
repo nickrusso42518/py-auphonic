@@ -1,0 +1,28 @@
+2020-05-17 19:50:03 INFO     Creating auphonic for user njrusmc, id 4399419688
+2020-05-17 19:50:03 INFO     Assigned input_dir /Users/nicholasrusso/Desktop/auphonic, id 4399419688
+2020-05-17 19:50:03 INFO     Completed auphonic for user njrusmc, id 4399419688
+2020-05-17 19:50:03 INFO     Starting create preset for pluralsight
+2020-05-17 19:50:03 DEBUG    Starting new HTTPS connection (1): auphonic.com:443
+2020-05-17 19:50:03 DEBUG    https://auphonic.com:443 "GET /api/presets.json HTTP/1.1" 200 None
+2020-05-17 19:50:03 INFO     Preset pluralsight already exists with UUID KjXfgYmDawztBZDWG8SjZR
+2020-05-17 19:50:03 INFO     Starting prod record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-17 19:50:04 DEBUG    https://auphonic.com:443 "POST /api/productions.json HTTP/1.1" 200 None
+2020-05-17 19:50:04 INFO     Completed prod record for /Users/nicholasrusso/Desktop/auphonic/testfile.wav, uuid HjAdSmVXL7cmEDg9C7ZpgN
+2020-05-17 19:50:04 INFO     Starting file upload for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-17 19:50:06 DEBUG    https://auphonic.com:443 "POST /api/production/HjAdSmVXL7cmEDg9C7ZpgN/upload.json HTTP/1.1" 200 None
+2020-05-17 19:50:06 INFO     Completed file upload for /Users/nicholasrusso/Desktop/auphonic/testfile.wav
+2020-05-17 19:50:06 INFO     Starting  audio prod for HjAdSmVXL7cmEDg9C7ZpgN
+2020-05-17 19:50:06 DEBUG    https://auphonic.com:443 "POST /api/production/HjAdSmVXL7cmEDg9C7ZpgN/start.json HTTP/1.1" 200 None
+2020-05-17 19:50:09 INFO     Status.WAITING file DL URL for prod HjAdSmVXL7cmEDg9C7ZpgN
+2020-05-17 19:50:10 DEBUG    https://auphonic.com:443 "GET /api/production/HjAdSmVXL7cmEDg9C7ZpgN.json HTTP/1.1" 200 None
+2020-05-17 19:50:13 INFO     Status.WAITING file DL URL for prod HjAdSmVXL7cmEDg9C7ZpgN
+2020-05-17 19:50:13 DEBUG    https://auphonic.com:443 "GET /api/production/HjAdSmVXL7cmEDg9C7ZpgN.json HTTP/1.1" 200 None
+2020-05-17 19:50:16 INFO     Status.AUDIO_PROC file DL URL for prod HjAdSmVXL7cmEDg9C7ZpgN
+2020-05-17 19:50:16 DEBUG    https://auphonic.com:443 "GET /api/production/HjAdSmVXL7cmEDg9C7ZpgN.json HTTP/1.1" 200 None
+2020-05-17 19:50:19 INFO     Status.AUDIO_ENC file DL URL for prod HjAdSmVXL7cmEDg9C7ZpgN
+2020-05-17 19:50:20 DEBUG    https://auphonic.com:443 "GET /api/production/HjAdSmVXL7cmEDg9C7ZpgN.json HTTP/1.1" 200 None
+2020-05-17 19:50:20 INFO     Status.DONE for HjAdSmVXL7cmEDg9C7ZpgN - https://auphonic.com/api/download/audio-result/HjAdSmVXL7cmEDg9C7ZpgN/testfile.wav
+2020-05-17 19:50:20 INFO     Starting file download from URL https://auphonic.com/api/download/audio-result/HjAdSmVXL7cmEDg9C7ZpgN/testfile.wav
+2020-05-17 19:50:20 DEBUG    https://auphonic.com:443 "GET /api/download/audio-result/HjAdSmVXL7cmEDg9C7ZpgN/testfile.wav HTTP/1.1" 200 1446632
+2020-05-17 19:50:21 INFO     Completed file download from URL https://auphonic.com/api/download/audio-result/HjAdSmVXL7cmEDg9C7ZpgN/testfile.wav
+2020-05-17 19:50:21 INFO     Outfile /Users/nicholasrusso/Desktop/auphonic/auphonic-results/auphonic-testfile.wav size: 1446632 bytes

@@ -6,11 +6,10 @@ Purpose: A simple Python client library for interacting with Auphonic
 via the REST API. See documentation here: https://auphonic.com/help/api/
 """
 
-from datetime import datetime
 from glob import glob
 from enum import Enum
+import logging
 import os
-import sys
 import time
 import requests
 
@@ -43,21 +42,29 @@ class Auphonic:
     Stateful handler for the Auphonic REST API.
     """
 
-    def __init__(self, username, password, input_dir=None, debug=True):
+    def __init__(self, username, password, input_dir=None, log_level=logging.INFO):
         """
         Constructor loads in environment variables, checks input directory,
         creates output directory, and stores attributes for use later.
-        The "debug" option enables status messages (true by default).
+        The "log_level" option identifies the level of logging required,
+        which is INFO by default.
         """
 
-        # Store the debug option and begin logging
-        self.debug = debug
+        # Craete a simple logger set to specific log level
+        logging.basicConfig(
+            format="%(asctime)s %(levelname)-8s %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+            level=log_level,
+        )
+        self.logger = logging.getLogger()
+
+        # Store the object's ID to improve logging cardinality
         _id = id(self)
-        self._log(f"Creating  auphonic for user {username}, id {_id}")
+        self.logger.info("Creating auphonic for user %s, id %s", username, _id)
 
         # If not supplied, use the "auphonic" directory on the desktop
         if not input_dir:
-            input_dir = f"{os.path.expanduser('~/Desktop')}/auphonic"
+            input_dir = "test_files"
 
         # Ensure the directory exists; creating it would be useless
         if not os.path.exists(input_dir):
@@ -67,17 +74,17 @@ class Auphonic:
         self.http_auth = (username, password)
         self.input_dir = input_dir
         self.session = requests.session()
-        self._log(f"Assigned  input_dir {input_dir}, id {_id}")
+        self.logger.info("Assigned input_dir %s, id %s", input_dir, _id)
 
-        # Build output directory
+        # Build output directory if it doesn't already exist
         self.output_dir = f"{self.input_dir}/auphonic-results"
         if not os.path.exists(self.output_dir):
             os.makedirs(self.output_dir)
 
-        self._log(f"Completed auphonic for user {username}, id {_id}")
+        self.logger.info("Completed auphonic for user %s, id %s", username, _id)
 
     @staticmethod
-    def build_from_env_vars(debug=True):
+    def build_from_env_vars(log_level=logging.INFO):
         """
         Static class-level helper method to quickly create a new Auhponic
         object using environment variables:
@@ -98,15 +105,12 @@ class Auphonic:
         input_dir = input_dir = os.environ.get("AUPHONIC_INPUT_DIR")
 
         # Create and return new Auphonic object
-        return Auphonic(username, password, input_dir, debug)
-
-    def _log(self, message):
-        """
-        When debug is enabled, prints a timestampped log message containing
-        the supplied text. When debug is false, does nothing.
-        """
-        if self.debug:
-            print(f"{datetime.now()}: {message}", file=sys.stderr)
+        return Auphonic(
+            username=username,
+            password=password,
+            input_dir=input_dir,
+            log_level=log_level,
+        )
 
     def request(self, resource, method, jsonbody=None, files=None):
         """
@@ -155,24 +159,26 @@ class Auphonic:
 
         # Store preset name and collect list of current presets
         new_name = new_preset["preset_name"].lower()
-        self._log(f"Starting  create preset for {new_name}")
+        self.logger.info("Starting create preset for %s", new_name)
         current_presets = self.get("presets.json")
 
         # Search for preset in list of presets
         for preset in current_presets["data"]:
             if preset["preset_name"].lower() == new_name:
                 uuid = preset["uuid"]
-                self._log(f"Preset {new_name} already exists with UUID {uuid}")
+                self.logger.info(
+                    "Preset %s already exists with UUID %s", new_name, uuid
+                )
                 break
 
         # For loop exhaused and did not find preset; create new one
         else:
 
             # Create new preset and print UUID for confirmation
-            self._log(f"Preset {new_name} not found; creating now")
+            self.logger.info("Preset %s not found; creating now", new_name)
             add_preset = self.post("presets.json", jsonbody=new_preset)
             uuid = add_preset["data"]["uuid"]
-            self._log(f"Preset {new_name} added with UUID {uuid}")
+            self.logger.info("Preset %s added with UUID %s", new_name, uuid)
 
         # Return the preset UUID for reference later
         return uuid
@@ -192,7 +198,7 @@ class Auphonic:
         producing audio.
         """
 
-        self._log(f"Starting  prod record for {input_file}")
+        self.logger.info("Starting prod record for %s", input_file)
 
         # Create the production body referencing the preset and extra metadata
         prod_data = {"preset": preset_uuid, "metadata": {"title": input_file}}
@@ -201,7 +207,9 @@ class Auphonic:
         add_prod = self.post("productions.json", jsonbody=prod_data)
 
         prod_uuid = add_prod["data"]["uuid"]
-        self._log(f"Completed prod record for {input_file}, uuid {prod_uuid}")
+        self.logger.info(
+            "Completed prod record for %s, uuid %s", input_file, prod_uuid
+        )
 
         # Return the production UUID for reference later
         return prod_uuid
@@ -214,13 +222,11 @@ class Auphonic:
         """
 
         # Upload a file data, NOT a JSON payload nor a filename string
-        self._log(f"Starting  file upload for {input_file}")
+        self.logger.info("Starting file upload for %s", input_file)
         with open(input_file, "rb") as handle:
-            self.post(
-                f"production/{prod_uuid}/upload.json",
-                files={"input_file": handle},
-            )
-        self._log(f"Completed file upload for {input_file}")
+            files = {"input_file": handle}
+            self.post(f"production/{prod_uuid}/upload.json", files=files)
+        self.logger.info("Completed file upload for %s", input_file)
 
     def produce_audio(self, prod_uuid):
         """
@@ -233,7 +239,7 @@ class Auphonic:
 
         # Start producing the audio. This API call is non-blocking
         # (asynchronous) and we must wait until the "download_url" is present
-        self._log(f"Starting  audio prod for {prod_uuid}")
+        self.logger.info("Starting  audio prod for %s", prod_uuid)
         self.post(f"production/{prod_uuid}/start.json")
 
         # Keep looping until the complete; either DONE or ERROR
@@ -241,19 +247,19 @@ class Auphonic:
         cur_status = Status.WAITING
         while cur_status not in [Status.DONE, Status.ERROR]:
             time.sleep(3)
-            self._log(f"{Status(cur_status)} file DL URL for prod {prod_uuid}")
+            self.logger.info("%s file DL URL for prod %s", cur_status, prod_uuid)
             start_prod = self.get(f"production/{prod_uuid}.json")
             cur_status = Status(start_prod["data"]["status"])
 
         # Success; return the download URL for use later
         if cur_status == Status.DONE:
             download_url = start_prod["data"]["output_files"][0]["download_url"]
-            self._log(f"{Status(cur_status)} for {prod_uuid} - {download_url}")
+            self.logger.info("%s for %s - %s", cur_status, prod_uuid, download_url)
             return download_url
 
         # Error occurred; log error message and return None
         error_msg = start_prod["data"]["error_message"]
-        self._log(f"{Status(cur_status)} for {prod_uuid} - {error_msg}")
+        self.logger.info("%s for %s - %s", cur_status, prod_uuid, error_msg)
         return None
 
     def download_file(self, download_url):
@@ -264,7 +270,7 @@ class Auphonic:
         prefixed with "auphonic-" to differentiate it from the source.
         """
 
-        self._log(f"Starting  file download from URL {download_url}")
+        self.logger.info("Starting file download from URL %s", download_url)
 
         # Download the file using the download URL. Cannot use get()
         # helper as it will include the base_url twice
@@ -279,9 +285,10 @@ class Auphonic:
 
         # Extract the filesize in bytes (parse int from str) for confirmation
         size_bytes = int(dl_file.headers["Content-Length"])
-        self._log(f"Completed file download from URL {download_url}")
-        self._log(f"Outfile {outfile} size: {size_bytes} bytes")
+        self.logger.info("Completed file download from URL %s", download_url)
+        self.logger.info("Outfile %s size: %s bytes", outfile, size_bytes)
 
+        # Return the filesize; caller may want to process it
         return size_bytes
 
     def process_file(self, input_file, preset_uuid):

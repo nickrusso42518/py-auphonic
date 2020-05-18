@@ -13,5 +13,5 @@ before_script:
 
 # Produce the test file (can add more test scripts later)
 script:
-  - "python produce.py"
+  - "make run"
 ...
