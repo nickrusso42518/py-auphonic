@@ -3,8 +3,9 @@ language: "python"
 python:
   - "3.6"
 
-# Install python packages, including linters
+# Install tree, plus required Python packages
 install:
+  - "sudo apt-get -y install tree"
   - "pip install -r requirements.txt"
 
 # Perform linting, and abandon execution if it fails
