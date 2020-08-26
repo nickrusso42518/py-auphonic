@@ -86,7 +86,7 @@ class Auphonic:
     @staticmethod
     def build_from_env_vars(log_level=logging.INFO):
         """
-        Static class-level helper method to quickly create a new Auhponic
+        Static class-level helper method to quickly create a new Auphonic
         object using environment variables:
           1. AUPHONIC_USERNAME: Your personal username for Auphonic
           2. AUPHONIC_PASSWORD: Your personal password for Auphonic
@@ -102,7 +102,8 @@ class Auphonic:
         if not password:
             raise ValueError("Must define AUPHONIC_PASSWORD environment var")
 
-        input_dir = input_dir = os.environ.get("AUPHONIC_INPUT_DIR")
+        # Collect input directory, defaulting to None if not defined
+        input_dir = os.environ.get("AUPHONIC_INPUT_DIR")
 
         # Create and return new Auphonic object
         return Auphonic(

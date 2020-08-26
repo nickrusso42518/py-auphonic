@@ -15,3 +15,4 @@
 2020-05-17 19:48:16 INFO     Starting file download from URL https://auphonic.com/api/download/audio-result/qfHtfcam5VtjhB435qPbKF/testfile.wav
 2020-05-17 19:48:17 INFO     Completed file download from URL https://auphonic.com/api/download/audio-result/qfHtfcam5VtjhB435qPbKF/testfile.wav
 2020-05-17 19:48:17 INFO     Outfile /Users/nicholasrusso/Desktop/auphonic/auphonic-results/auphonic-testfile.wav size: 1446632 bytes
+** Produced 1/1 files successfully **
