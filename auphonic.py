@@ -11,7 +11,7 @@ from enum import Enum
 import logging
 import os
 import time
-import requests
+import httpx
 
 
 class Status(Enum):
@@ -73,7 +73,7 @@ class Auphonic:
         # Store object attributes
         self.http_auth = (username, password)
         self.input_dir = input_dir
-        self.session = requests.session()
+        self.session = httpx.Client()
         self.logger.info("Assigned input_dir %s, id %s", input_dir, _id)
 
         # Build output directory if it doesn't already exist
@@ -279,7 +279,7 @@ class Auphonic:
 
         # Determine the original filename by extracting it from the URL, then
         # write the auphonic-(orig_file) file to disk
-        orig_file = dl_file.url.split("/")[-1]
+        orig_file = dl_file.url.path.split("/")[-1]
         outfile = f"{self.output_dir}/auphonic-{orig_file}"
         with open(outfile, "wb") as handle:
             handle.write(dl_file.content)
