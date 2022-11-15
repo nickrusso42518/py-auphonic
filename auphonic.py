@@ -14,6 +14,10 @@ import time
 import httpx
 
 
+# Request timeout (default is 5 seconds and sometimes fails)
+TIMEOUT = 20
+
+
 class Status(Enum):
     """
     Enumerated status codes collected from this resource:
@@ -127,6 +131,7 @@ class Auphonic:
             json=jsonbody,
             files=files,
             auth=self.http_auth,
+            timeout=TIMEOUT,
         )
 
         # Check for errors and return body as Python objects
@@ -275,7 +280,9 @@ class Auphonic:
 
         # Download the file using the download URL. Cannot use get()
         # helper as it will include the base_url twice
-        dl_file = self.session.get(download_url, auth=self.http_auth)
+        dl_file = self.session.get(
+            download_url, auth=self.http_auth, timeout=TIMEOUT
+        )
 
         # Determine the original filename by extracting it from the URL, then
         # write the auphonic-(orig_file) file to disk
