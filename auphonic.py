@@ -11,7 +11,11 @@ from enum import Enum
 import logging
 import os
 import time
-import requests
+import httpx
+
+
+# Request timeout (default is 5 seconds and sometimes fails)
+TIMEOUT = 20
 
 
 class Status(Enum):
@@ -73,7 +77,7 @@ class Auphonic:
         # Store object attributes
         self.http_auth = (username, password)
         self.input_dir = input_dir
-        self.session = requests.session()
+        self.session = httpx.Client()
         self.logger.info("Assigned input_dir %s, id %s", input_dir, _id)
 
         # Build output directory if it doesn't already exist
@@ -127,6 +131,7 @@ class Auphonic:
             json=jsonbody,
             files=files,
             auth=self.http_auth,
+            timeout=TIMEOUT,
         )
 
         # Check for errors and return body as Python objects
@@ -275,11 +280,13 @@ class Auphonic:
 
         # Download the file using the download URL. Cannot use get()
         # helper as it will include the base_url twice
-        dl_file = self.session.get(download_url, auth=self.http_auth)
+        dl_file = self.session.get(
+            download_url, auth=self.http_auth, timeout=TIMEOUT
+        )
 
         # Determine the original filename by extracting it from the URL, then
         # write the auphonic-(orig_file) file to disk
-        orig_file = dl_file.url.split("/")[-1]
+        orig_file = dl_file.url.path.split("/")[-1]
         outfile = f"{self.output_dir}/auphonic-{orig_file}"
         with open(outfile, "wb") as handle:
             handle.write(dl_file.content)

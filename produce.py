@@ -18,7 +18,7 @@ def main():
     auphonic = Auphonic.build_from_env_vars()
 
     # Load in the preset dictionary from a file
-    with open("pluralsight_preset.json", "r") as handle:
+    with open("pluralsight_preset.json", "r", encoding="utf-8") as handle:
         new_preset = json.load(handle)
 
     # Create the preset if necessary, or do nothing if it already exists.
