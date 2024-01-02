@@ -1,0 +1,22 @@
+{
+  "status_code": 200,
+  "error_code": null,
+  "error_message": "",
+  "form_errors": {},
+  "data": {
+    "username": "njrusmc",
+    "email": "njrusmc@gmail.com",
+    "date_joined": "2019-06-07T11:13:32.980Z",
+    "user_id": "4e7594097e58d8f58a90a9fdceae250d",
+    "notification_email": true,
+    "error_email": true,
+    "warning_email": true,
+    "low_credits_email": false,
+    "low_credits_threshold": 10,
+    "credits": 16.401638674729,
+    "recurring_credits": 2.0,
+    "onetime_credits": 14.401638674729,
+    "recharge_date": "2023-12-09T16:15:05.597Z",
+    "recharge_recurring_credits": 0.0
+  }
+}

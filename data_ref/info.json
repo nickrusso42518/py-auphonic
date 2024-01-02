@@ -1,0 +1,1886 @@
+{
+  "status_code": 200,
+  "error_code": null,
+  "error_message": "",
+  "form_errors": {},
+  "data": {
+    "output_files": {
+      "mp3": {
+        "bitrate_strings": [
+          "32 kbps (~14MB/h)",
+          "40 kbps (~18MB/h)",
+          "48 kbps (~21MB/h)",
+          "56 kbps (~25MB/h)",
+          "64 kbps (~28MB/h)",
+          "80 kbps (~35MB/h)",
+          "96 kbps (~42MB/h)",
+          "112 kbps (~49MB/h)",
+          "128 kbps (~56MB/h)",
+          "160 kbps (~70MB/h)",
+          "192 kbps (~84MB/h)",
+          "224 kbps (~98MB/h)",
+          "256 kbps (~112MB/h)",
+          "320 kbps (~141MB/h)"
+        ],
+        "endings": [
+          "mp3"
+        ],
+        "display_name": "MP3",
+        "bitrates": [
+          "32",
+          "40",
+          "48",
+          "56",
+          "64",
+          "80",
+          "96",
+          "112",
+          "128",
+          "160",
+          "192",
+          "224",
+          "256",
+          "320"
+        ],
+        "default_bitrate": "112",
+        "type": "lossy"
+      },
+      "mp3-vbr": {
+        "bitrate_strings": [
+          "~32 kbps (~14MB/h)",
+          "~40 kbps (~18MB/h)",
+          "~48 kbps (~21MB/h)",
+          "~56 kbps (~25MB/h)",
+          "~64 kbps (~28MB/h)",
+          "~80 kbps (~35MB/h)",
+          "~96 kbps (~42MB/h)",
+          "~112 kbps (~49MB/h)",
+          "~128 kbps (~56MB/h)",
+          "~160 kbps (~70MB/h)",
+          "~192 kbps (~84MB/h)",
+          "~224 kbps (~98MB/h)",
+          "~256 kbps (~112MB/h)",
+          "~320 kbps (~141MB/h)"
+        ],
+        "endings": [
+          "mp3"
+        ],
+        "display_name": "MP3 Variable Bitrate",
+        "bitrates": [
+          "32",
+          "40",
+          "48",
+          "56",
+          "64",
+          "80",
+          "96",
+          "112",
+          "128",
+          "160",
+          "192",
+          "224",
+          "256",
+          "320"
+        ],
+        "default_bitrate": "96",
+        "type": "lossy"
+      },
+      "vorbis": {
+        "bitrate_strings": [
+          "~32 kbps (~14MB/h)",
+          "~40 kbps (~18MB/h)",
+          "~48 kbps (~21MB/h)",
+          "~56 kbps (~25MB/h)",
+          "~64 kbps (~28MB/h)",
+          "~80 kbps (~35MB/h)",
+          "~96 kbps (~42MB/h)",
+          "~112 kbps (~49MB/h)",
+          "~128 kbps (~56MB/h)",
+          "~160 kbps (~70MB/h)",
+          "~192 kbps (~84MB/h)",
+          "~224 kbps (~98MB/h)",
+          "~256 kbps (~112MB/h)",
+          "~320 kbps (~141MB/h)"
+        ],
+        "endings": [
+          "ogg",
+          "oga"
+        ],
+        "display_name": "Ogg Vorbis",
+        "bitrates": [
+          "32",
+          "40",
+          "48",
+          "56",
+          "64",
+          "80",
+          "96",
+          "112",
+          "128",
+          "160",
+          "192",
+          "224",
+          "256",
+          "320"
+        ],
+        "default_bitrate": "96",
+        "type": "lossy"
+      },
+      "aac": {
+        "bitrate_strings": [
+          "24 kbps, HE AAC (~11MB/h)",
+          "32 kbps, HE AAC (~14MB/h)",
+          "40 kbps, HE AAC (~18MB/h)",
+          "48 kbps, HE AAC (~21MB/h)",
+          "56 kbps, HE AAC (~25MB/h)",
+          "64 kbps, HE AAC (~28MB/h)",
+          "80 kbps, HE AAC (~35MB/h)",
+          "96 kbps (~42MB/h)",
+          "112 kbps (~49MB/h)",
+          "128 kbps (~56MB/h)",
+          "160 kbps (~70MB/h)",
+          "192 kbps (~84MB/h)",
+          "256 kbps (~112MB/h)",
+          "320 kbps (~141MB/h)"
+        ],
+        "endings": [
+          "m4a",
+          "mp4",
+          "m4b"
+        ],
+        "display_name": "AAC (M4A, MP4, M4B)",
+        "bitrates": [
+          "24",
+          "32",
+          "40",
+          "48",
+          "56",
+          "64",
+          "80",
+          "96",
+          "112",
+          "128",
+          "160",
+          "192",
+          "256",
+          "320"
+        ],
+        "default_bitrate": "80",
+        "type": "lossy"
+      },
+      "opus": {
+        "bitrate_strings": [
+          "~6 kbps (~3MB/h)",
+          "~12 kbps (~5MB/h)",
+          "~16 kbps (~7MB/h)",
+          "~20 kbps (~9MB/h)",
+          "~24 kbps (~11MB/h)",
+          "~32 kbps (~14MB/h)",
+          "~40 kbps (~18MB/h)",
+          "~48 kbps (~21MB/h)",
+          "~56 kbps (~25MB/h)",
+          "~64 kbps (~28MB/h)",
+          "~80 kbps (~35MB/h)",
+          "~96 kbps (~42MB/h)",
+          "~112 kbps (~49MB/h)",
+          "~128 kbps (~56MB/h)",
+          "~160 kbps (~70MB/h)",
+          "~192 kbps (~84MB/h)",
+          "~256 kbps (~112MB/h)"
+        ],
+        "endings": [
+          "opus"
+        ],
+        "display_name": "Opus",
+        "bitrates": [
+          "6",
+          "12",
+          "16",
+          "20",
+          "24",
+          "32",
+          "40",
+          "48",
+          "56",
+          "64",
+          "80",
+          "96",
+          "112",
+          "128",
+          "160",
+          "192",
+          "256"
+        ],
+        "default_bitrate": "48",
+        "type": "lossy"
+      },
+      "flac": {
+        "bitrate_strings": [
+          "optimal (stereo ~130MB/h, mono ~65MB/h)"
+        ],
+        "endings": [
+          "flac"
+        ],
+        "display_name": "FLAC",
+        "type": "lossless"
+      },
+      "alac": {
+        "bitrate_strings": [
+          "optimal (stereo ~140MB/h, mono ~70MB/h)"
+        ],
+        "endings": [
+          "m4a",
+          "mp4"
+        ],
+        "display_name": "ALAC (M4A, MP4)",
+        "type": "lossless"
+      },
+      "wav": {
+        "bitrate_strings": [
+          "optimal (stereo ~635MB/h, mono ~318MB/h)"
+        ],
+        "endings": [
+          "wav"
+        ],
+        "display_name": "WAV 16-bit PCM",
+        "type": "lossless"
+      },
+      "wav-24bit": {
+        "bitrate_strings": [
+          "optimal (stereo ~953MB/h, mono ~476MB/h)"
+        ],
+        "endings": [
+          "wav"
+        ],
+        "display_name": "WAV 24-bit PCM",
+        "type": "lossless"
+      },
+      "descr": {
+        "display_name": "Production Description",
+        "type": "description",
+        "endings": [
+          "json",
+          "xml",
+          "yaml"
+        ]
+      },
+      "chaps": {
+        "display_name": "Chapters File",
+        "type": "description",
+        "endings": [
+          "chapters.txt"
+        ]
+      },
+      "psc": {
+        "display_name": "Podlove Simple Chapters",
+        "type": "description",
+        "endings": [
+          "psc",
+          "xml",
+          "psc.json"
+        ]
+      },
+      "pod2chaps": {
+        "display_name": "Podcasting 2.0 Chapters",
+        "type": "description",
+        "endings": [
+          "chapters.json"
+        ]
+      },
+      "image": {
+        "display_name": "Cover Image",
+        "type": "description"
+      },
+      "cut-list": {
+        "display_name": "Cut List (Filler and Silence)",
+        "type": "description",
+        "endings": [
+          "AudacityRegions.txt",
+          "AuditionRegions.csv",
+          "ReaperRegions.csv",
+          "SamplitudeReaper.edl",
+          "DaVinciResolve.edl",
+          "FinalCutProLegacy.xml",
+          "FinalCutProX.xml"
+        ]
+      },
+      "stats": {
+        "display_name": "Audio Processing Statistics",
+        "type": "description",
+        "endings": [
+          "txt",
+          "json",
+          "yaml"
+        ]
+      },
+      "video": {
+        "bitrate_strings": [
+          "same bitrate as input"
+        ],
+        "display_name": "Video",
+        "type": "video"
+      },
+      "audiogram": {
+        "bitrate_strings": [
+          "same bitrate as input"
+        ],
+        "display_name": "Audiogram (Waveform Video)",
+        "type": "video"
+      },
+      "input": {
+        "display_name": "Unprocessed Input File",
+        "type": "description",
+        "bitrate_strings": [
+          "same bitrate as input"
+        ]
+      },
+      "tracks": {
+        "display_name": "Individual Tracks",
+        "type": "description",
+        "endings": [
+          "flac.zip",
+          "wav.zip"
+        ]
+      },
+      "wavedat": {
+        "display_name": "Waveform Data File",
+        "type": "description",
+        "endings": [
+          "waveform.dat",
+          "waveform.json"
+        ]
+      },
+      "transcript": {
+        "display_name": "Transcript",
+        "type": "description",
+        "endings": [
+          "html"
+        ]
+      },
+      "speech": {
+        "display_name": "Speech Data",
+        "type": "description",
+        "endings": [
+          "json",
+          "xml"
+        ]
+      },
+      "subtitle": {
+        "display_name": "Subtitles",
+        "type": "description",
+        "endings": [
+          "vtt",
+          "srt"
+        ]
+      }
+    },
+    "file_endings": {
+      "mp3": [
+        "mp3"
+      ],
+      "mp3-vbr": [
+        "mp3"
+      ],
+      "vorbis": [
+        "ogg",
+        "oga"
+      ],
+      "flac": [
+        "flac"
+      ],
+      "aac": [
+        "m4a",
+        "mp4",
+        "m4b"
+      ],
+      "alac": [
+        "m4a",
+        "mp4"
+      ],
+      "wav": [
+        "wav"
+      ],
+      "wav-24bit": [
+        "wav"
+      ],
+      "opus": [
+        "opus"
+      ],
+      "video": [
+        ""
+      ],
+      "audiogram": [
+        "mp4"
+      ],
+      "input": [
+        ""
+      ],
+      "tracks": [
+        "flac.zip",
+        "wav.zip"
+      ],
+      "cut-list": [
+        "AudacityRegions.txt",
+        "AuditionRegions.csv",
+        "ReaperRegions.csv",
+        "SamplitudeReaper.edl",
+        "DaVinciResolve.edl",
+        "FinalCutProLegacy.xml",
+        "FinalCutProX.xml"
+      ],
+      "descr": [
+        "json",
+        "xml",
+        "yaml"
+      ],
+      "chaps": [
+        "chapters.txt"
+      ],
+      "psc": [
+        "psc",
+        "xml",
+        "psc.json"
+      ],
+      "pod2chaps": [
+        "chapters.json"
+      ],
+      "image": [
+        ""
+      ],
+      "stats": [
+        "txt",
+        "json",
+        "yaml"
+      ],
+      "wavedat": [
+        "waveform.dat",
+        "waveform.json"
+      ],
+      "transcript": [
+        "html"
+      ],
+      "speech": [
+        "json",
+        "xml"
+      ],
+      "subtitle": [
+        "vtt",
+        "srt"
+      ]
+    },
+    "service_types": {
+      "ftp": {
+        "display_name": "FTP",
+        "parameters": null
+      },
+      "sftp": {
+        "display_name": "SFTP",
+        "parameters": null
+      },
+      "libsyn": {
+        "display_name": "libsyn",
+        "parameters": null
+      },
+      "archiveorg": {
+        "display_name": "ArchiveOrg",
+        "parameters": null
+      },
+      "dropbox": {
+        "display_name": "Dropbox",
+        "parameters": null
+      },
+      "onedrive": {
+        "display_name": "Ondedrive",
+        "parameters": null
+      },
+      "amazons3": {
+        "display_name": "AmazonS3",
+        "parameters": null
+      },
+      "s3storage": {
+        "display_name": "S3Storage",
+        "parameters": null
+      },
+      "webdav": {
+        "display_name": "WebDAV",
+        "parameters": null
+      },
+      "blubrry": {
+        "display_name": "blubrry",
+        "parameters": null
+      },
+      "gdrive": {
+        "display_name": "GoogleDrive",
+        "parameters": null
+      },
+      "youtube": {
+        "display_name": "YouTube",
+        "parameters": {
+          "privacy": {
+            "type": "select",
+            "display_name": "Privacy",
+            "default_value": "public",
+            "options": [
+              {
+                "value": "private",
+                "display_name": "Private"
+              },
+              {
+                "value": "public",
+                "display_name": "Public"
+              }
+            ]
+          },
+          "category": {
+            "type": "select",
+            "display_name": "Category",
+            "default_value": "",
+            "options": [
+              {
+                "value": null,
+                "display_name": ""
+              },
+              {
+                "value": "Autos",
+                "display_name": "Autos & Vehicles"
+              },
+              {
+                "value": "Comedy",
+                "display_name": "Comedy"
+              },
+              {
+                "value": "Education",
+                "display_name": "Education"
+              },
+              {
+                "value": "Entertainment",
+                "display_name": "Entertainment"
+              },
+              {
+                "value": "Film",
+                "display_name": "Film & Animation"
+              },
+              {
+                "value": "Games",
+                "display_name": "Gaming"
+              },
+              {
+                "value": "Howto",
+                "display_name": "Howto & Style"
+              },
+              {
+                "value": "Music",
+                "display_name": "Music"
+              },
+              {
+                "value": "News",
+                "display_name": "News & Politics"
+              },
+              {
+                "value": "Nonprofit",
+                "display_name": "Nonprofits & Activism"
+              },
+              {
+                "value": "People",
+                "display_name": "People & Blogs"
+              },
+              {
+                "value": "Animals",
+                "display_name": "Pets & Animals"
+              },
+              {
+                "value": "Tech",
+                "display_name": "Science & Technology"
+              },
+              {
+                "value": "Sports",
+                "display_name": "Sports"
+              },
+              {
+                "value": "Travel",
+                "display_name": "Travel & Events"
+              }
+            ]
+          }
+        }
+      },
+      "facebook": {
+        "display_name": "Facebook",
+        "parameters": {
+          "privacy": {
+            "type": "select",
+            "display_name": "Distribution",
+            "default_value": "everywhere",
+            "options": [
+              {
+                "value": "everywhere",
+                "display_name": "Post to News Feed"
+              },
+              {
+                "value": "no_story",
+                "display_name": "Exclude from News Feed"
+              },
+              {
+                "value": "secret",
+                "display_name": "Secret"
+              }
+            ]
+          },
+          "embeddable": {
+            "type": "checkbox",
+            "display_name": "Embeddable",
+            "default_value": true
+          }
+        }
+      },
+      "soundcloud": {
+        "display_name": "SoundCloud",
+        "parameters": {
+          "sharing": {
+            "type": "select",
+            "display_name": "Sharing",
+            "default_value": "public",
+            "options": [
+              {
+                "value": "private",
+                "display_name": "Private"
+              },
+              {
+                "value": "public",
+                "display_name": "Public"
+              }
+            ]
+          },
+          "downloadable": {
+            "type": "checkbox",
+            "display_name": "Downloadable",
+            "default_value": true
+          },
+          "track_type": {
+            "type": "select",
+            "display_name": "Type",
+            "default_value": "",
+            "options": [
+              {
+                "value": "",
+                "display_name": ""
+              },
+              {
+                "value": "other",
+                "display_name": "Other"
+              },
+              {
+                "value": "sample",
+                "display_name": "One Shot Sample"
+              },
+              {
+                "value": "sound effect",
+                "display_name": "Sound Effect"
+              },
+              {
+                "value": "loop",
+                "display_name": "Loop"
+              },
+              {
+                "value": "stem",
+                "display_name": "Stem"
+              },
+              {
+                "value": "in progress",
+                "display_name": "Work in Progress"
+              },
+              {
+                "value": "demo",
+                "display_name": "Demo"
+              },
+              {
+                "value": "podcast",
+                "display_name": "Podcast"
+              },
+              {
+                "value": "spoken",
+                "display_name": "Spoken"
+              },
+              {
+                "value": "recording",
+                "display_name": "Recording"
+              },
+              {
+                "value": "live",
+                "display_name": "Live"
+              },
+              {
+                "value": "remix",
+                "display_name": "Remix"
+              },
+              {
+                "value": "original",
+                "display_name": "Original"
+              }
+            ]
+          }
+        }
+      },
+      "generichoster.captivate": {
+        "display_name": "Captivate",
+        "parameters": {
+          "draft": {
+            "type": "checkbox",
+            "display_name": "Save as draft?",
+            "short_name": "Draft?",
+            "default_value": false
+          },
+          "type": {
+            "type": "select",
+            "display_name": "Episode Type",
+            "options": [
+              {
+                "display_name": "Regular Episode",
+                "value": "full"
+              },
+              {
+                "display_name": "Bonus Episode",
+                "value": "bonus"
+              },
+              {
+                "display_name": "Trailer",
+                "value": "trailer"
+              }
+            ],
+            "default_value": "full"
+          }
+        }
+      },
+      "oauthhoster.podbean": {
+        "display_name": "PodBean",
+        "parameters": {
+          "draft": {
+            "type": "checkbox",
+            "display_name": "Save as draft?",
+            "short_name": "Draft?",
+            "default_value": false
+          },
+          "type": {
+            "type": "select",
+            "display_name": "Publishing Type",
+            "options": [
+              {
+                "display_name": "Public",
+                "value": "public"
+              },
+              {
+                "display_name": "Premium",
+                "value": "premium"
+              },
+              {
+                "display_name": "Private",
+                "value": "private"
+              }
+            ],
+            "default_value": "public",
+            "hidden": false
+          }
+        }
+      },
+      "spreaker": {
+        "display_name": "Spreaker",
+        "parameters": {
+          "draft": {
+            "type": "checkbox",
+            "display_name": "Save as draft?",
+            "default_value": false
+          },
+          "show": {
+            "type": "select",
+            "display_name": "Collection / Show",
+            "short_name": "Show",
+            "default_value": "",
+            "options": []
+          },
+          "sharing": {
+            "type": "select",
+            "display_name": "Sharing",
+            "default_value": "public",
+            "options": [
+              {
+                "value": "private",
+                "display_name": "Private"
+              },
+              {
+                "value": "public",
+                "display_name": "Public"
+              }
+            ]
+          },
+          "downloadable": {
+            "type": "checkbox",
+            "display_name": "Downloadable?",
+            "default_value": true
+          }
+        }
+      },
+      "letscast": {
+        "display_name": "letscast",
+        "parameters": null
+      }
+    },
+    "algorithms": {
+      "denoise": {
+        "display_name": "Noise Reduction ",
+        "type": "checkbox",
+        "default_value": false,
+        "description": "Classifies regions with different backgrounds and automatically removes noise and hum."
+      },
+      "denoisemethod": {
+        "display_name": "Denoising Method",
+        "type": "select",
+        "default_value": 0,
+        "belongs_to": "denoise",
+        "options": [
+          {
+            "display_name": "Static: remove constant noises only",
+            "value": "static"
+          },
+          {
+            "display_name": "Dynamic: keep speech and music, remove everything else",
+            "value": "dynamic"
+          },
+          {
+            "display_name": "Speech Isolation: keep speech, remove everything else",
+            "value": "speech_isolation"
+          }
+        ]
+      },
+      "denoiseamount": {
+        "display_name": "Noise Reduction Amount",
+        "type": "select",
+        "default_value": 0,
+        "belongs_to": "denoise",
+        "options": [
+          {
+            "display_name": "Auto",
+            "value": 0
+          },
+          {
+            "display_name": "Disable Denoise (Dehum only)",
+            "value": -1
+          },
+          {
+            "display_name": "3 dB",
+            "value": 3
+          },
+          {
+            "display_name": "6 dB (low)",
+            "value": 6
+          },
+          {
+            "display_name": "9 dB",
+            "value": 9
+          },
+          {
+            "display_name": "12 dB (medium)",
+            "value": 12
+          },
+          {
+            "display_name": "15 dB",
+            "value": 15
+          },
+          {
+            "display_name": "18 dB",
+            "value": 18
+          },
+          {
+            "display_name": "24 dB (high)",
+            "value": 24
+          },
+          {
+            "display_name": "30 dB",
+            "value": 30
+          },
+          {
+            "display_name": "100 dB (complete)",
+            "value": 100
+          }
+        ]
+      },
+      "debreath": {
+        "display_name": "Remove Breathings",
+        "type": "checkbox",
+        "default-value": false,
+        "belongs_to": "denoise"
+      },
+      "dehum": {
+        "display_name": "Hum Reduction Base Frequency",
+        "type": "select",
+        "default_value": 0,
+        "belongs_to": "denoise",
+        "options": [
+          {
+            "display_name": "Auto",
+            "value": 0
+          },
+          {
+            "display_name": "50 Hz",
+            "value": 50
+          },
+          {
+            "display_name": "60 Hz",
+            "value": 60
+          }
+        ]
+      },
+      "dehumamount": {
+        "display_name": "Hum Reduction Amount",
+        "type": "select",
+        "default_value": 0,
+        "belongs_to": "denoise",
+        "options": [
+          {
+            "display_name": "Auto",
+            "value": 0
+          },
+          {
+            "display_name": "Disable Dehum (Denoise only)",
+            "value": -1
+          },
+          {
+            "display_name": "3 dB",
+            "value": 3
+          },
+          {
+            "display_name": "6 dB (low)",
+            "value": 6
+          },
+          {
+            "display_name": "9 dB",
+            "value": 9
+          },
+          {
+            "display_name": "12 dB (medium)",
+            "value": 12
+          },
+          {
+            "display_name": "15 dB",
+            "value": 15
+          },
+          {
+            "display_name": "18 dB",
+            "value": 18
+          },
+          {
+            "display_name": "24 dB (high)",
+            "value": 24
+          },
+          {
+            "display_name": "30 dB",
+            "value": 30
+          },
+          {
+            "display_name": "100 dB (complete)",
+            "value": 100
+          }
+        ]
+      },
+      "filtering": {
+        "display_name": "Filtering",
+        "type": "checkbox",
+        "default_value": true,
+        "description": "Filters unnecessary and disturbing low frequencies depending on the context (speech, music, noise)."
+      },
+      "filtermethod": {
+        "display_name": "Filtering Method",
+        "type": "select",
+        "default_value": 0,
+        "belongs_to": "hipfilter",
+        "options": [
+          {
+            "display_name": "Adaptive high-pass filtering",
+            "value": "hipfilter"
+          },
+          {
+            "display_name": "Voice AutoEQ",
+            "value": "autoeq"
+          }
+        ]
+      },
+      "leveler": {
+        "display_name": "Adaptive Leveler",
+        "type": "checkbox",
+        "default_value": true,
+        "description": "Corrects level differences between speakers, music and speech, etc. to achieve a balanced overall loudness."
+      },
+      "compressor": {
+        "display_name": "Compressor",
+        "type": "select",
+        "default_value": "auto",
+        "belongs_to": "leveler",
+        "options": [
+          {
+            "display_name": "Auto",
+            "value": "auto"
+          },
+          {
+            "display_name": "Off",
+            "value": "off"
+          },
+          {
+            "display_name": "Soft",
+            "value": "soft"
+          },
+          {
+            "display_name": "Medium",
+            "value": "medium"
+          },
+          {
+            "display_name": "Hard",
+            "value": "hard"
+          }
+        ]
+      },
+      "compressor_m": {
+        "display_name": "Music Compressor",
+        "type": "select",
+        "default_value": -1,
+        "belongs_to": "leveler",
+        "options": [
+          {
+            "display_name": "Same",
+            "value": "Same"
+          },
+          {
+            "display_name": "Auto",
+            "value": "auto"
+          },
+          {
+            "display_name": "Off",
+            "value": "off"
+          },
+          {
+            "display_name": "Soft",
+            "value": "soft"
+          },
+          {
+            "display_name": "Medium",
+            "value": "medium"
+          },
+          {
+            "display_name": "Hard",
+            "value": "hard"
+          }
+        ]
+      },
+      "levelerstrength": {
+        "display_name": "Leveler Strength",
+        "type": "select",
+        "default_value": 100,
+        "belongs_to": "leveler",
+        "options": [
+          {
+            "display_name": "120% (Amplify Everything)",
+            "value": 120
+          },
+          {
+            "display_name": "110% (Fast Leveler)",
+            "value": 110
+          },
+          {
+            "display_name": "100% (Default)",
+            "value": 100
+          },
+          {
+            "display_name": "90%",
+            "value": 90
+          },
+          {
+            "display_name": "80%",
+            "value": 80
+          },
+          {
+            "display_name": "70% (DynRange +3dB)",
+            "value": 70
+          },
+          {
+            "display_name": "60%",
+            "value": 60
+          },
+          {
+            "display_name": "50% (DynRange +6dB)",
+            "value": 50
+          },
+          {
+            "display_name": "40%",
+            "value": 40
+          },
+          {
+            "display_name": "30% (DynRange +10.5dB)",
+            "value": 30
+          },
+          {
+            "display_name": "20%",
+            "value": 20
+          },
+          {
+            "display_name": "10% (DynRange +20dB)",
+            "value": 10
+          },
+          {
+            "display_name": "0% (no leveling)",
+            "value": 0
+          }
+        ]
+      },
+      "levelerstrength_m": {
+        "display_name": "Music Leveler Strength",
+        "type": "select",
+        "default_value": -1,
+        "belongs_to": "leveler",
+        "options": [
+          {
+            "display_name": "Same",
+            "value": -1
+          },
+          {
+            "display_name": "120% (Amplify Everything)",
+            "value": 120
+          },
+          {
+            "display_name": "110% (Fast Leveler)",
+            "value": 110
+          },
+          {
+            "display_name": "100% (Default)",
+            "value": 100
+          },
+          {
+            "display_name": "90%",
+            "value": 90
+          },
+          {
+            "display_name": "80%",
+            "value": 80
+          },
+          {
+            "display_name": "70% (DynRange +3dB)",
+            "value": 70
+          },
+          {
+            "display_name": "60%",
+            "value": 60
+          },
+          {
+            "display_name": "50% (DynRange +6dB)",
+            "value": 50
+          },
+          {
+            "display_name": "40%",
+            "value": 40
+          },
+          {
+            "display_name": "30% (DynRange +10.5dB)",
+            "value": 30
+          },
+          {
+            "display_name": "20%",
+            "value": 20
+          },
+          {
+            "display_name": "10% (DynRange +20dB)",
+            "value": 10
+          },
+          {
+            "display_name": "0% (no leveling)",
+            "value": 0
+          }
+        ]
+      },
+      "maxlra": {
+        "display_name": "Max Loudness Range",
+        "type": "select",
+        "default_value": 0,
+        "belongs_to": "leveler",
+        "options": [
+          {
+            "display_name": "Auto",
+            "value": 0
+          },
+          {
+            "display_name": "3 LU",
+            "value": 3
+          },
+          {
+            "display_name": "4 LU",
+            "value": 4
+          },
+          {
+            "display_name": "5 LU",
+            "value": 5
+          },
+          {
+            "display_name": "6 LU",
+            "value": 6
+          },
+          {
+            "display_name": "8 LU",
+            "value": 8
+          },
+          {
+            "display_name": "9 LU",
+            "value": 9
+          },
+          {
+            "display_name": "10 LU",
+            "value": 10
+          },
+          {
+            "display_name": "12 LU",
+            "value": 12
+          },
+          {
+            "display_name": "15 LU",
+            "value": 15
+          },
+          {
+            "display_name": "18 LU",
+            "value": 18
+          },
+          {
+            "display_name": "20 LU",
+            "value": 20
+          },
+          {
+            "display_name": "25 LU",
+            "value": 25
+          },
+          {
+            "display_name": "30 LU",
+            "value": 30
+          }
+        ]
+      },
+      "maxs": {
+        "display_name": "Max Short-term Loudness",
+        "type": "select",
+        "default_value": 0,
+        "belongs_to": "leveler",
+        "options": [
+          {
+            "display_name": "Auto",
+            "value": 0
+          },
+          {
+            "display_name": "+3 LU rel",
+            "value": 3
+          },
+          {
+            "display_name": "+4 LU rel",
+            "value": 4
+          },
+          {
+            "display_name": "+5 LU rel",
+            "value": 5
+          },
+          {
+            "display_name": "+6 LU rel",
+            "value": 6
+          },
+          {
+            "display_name": "+8 LU rel",
+            "value": 8
+          },
+          {
+            "display_name": "+9 LU rel",
+            "value": 9
+          },
+          {
+            "display_name": "+10 LU rel",
+            "value": 10
+          },
+          {
+            "display_name": "+12 LU rel",
+            "value": 12
+          }
+        ]
+      },
+      "maxm": {
+        "display_name": "Max Momentary Loudness",
+        "type": "select",
+        "default_value": 0,
+        "belongs_to": "leveler",
+        "options": [
+          {
+            "display_name": "Auto",
+            "value": 0
+          },
+          {
+            "display_name": "+8 LU rel",
+            "value": 8
+          },
+          {
+            "display_name": "+9 LU rel",
+            "value": 9
+          },
+          {
+            "display_name": "+10 LU rel",
+            "value": 10
+          },
+          {
+            "display_name": "+11 LU rel",
+            "value": 11
+          },
+          {
+            "display_name": "+12 LU rel",
+            "value": 12
+          },
+          {
+            "display_name": "+15 LU rel",
+            "value": 15
+          },
+          {
+            "display_name": "+18 LU rel",
+            "value": 18
+          },
+          {
+            "display_name": "+20 LU rel",
+            "value": 20
+          }
+        ]
+      },
+      "musicgain": {
+        "display_name": "Music Gain",
+        "type": "select",
+        "default_value": 0,
+        "belongs_to": "leveler",
+        "options": [
+          {
+            "display_name": "-6 dB (Music softer)",
+            "value": -6
+          },
+          {
+            "display_name": "-5 dB",
+            "value": -5
+          },
+          {
+            "display_name": "-4 dB",
+            "value": -4
+          },
+          {
+            "display_name": "-3 dB",
+            "value": -3
+          },
+          {
+            "display_name": "-2 dB",
+            "value": -2
+          },
+          {
+            "display_name": "0 dB",
+            "value": 0
+          },
+          {
+            "display_name": "+2 dB",
+            "value": 2
+          },
+          {
+            "display_name": "+3 dB",
+            "value": 3
+          },
+          {
+            "display_name": "+4 dB",
+            "value": 4
+          },
+          {
+            "display_name": "+5 dB",
+            "value": 5
+          },
+          {
+            "display_name": "+6 dB (Music louder)",
+            "value": 6
+          }
+        ]
+      },
+      "msclassifier": {
+        "display_name": "MusicSpeech Classifier",
+        "type": "select",
+        "default_value": 0,
+        "belongs_to": "leveler",
+        "options": [
+          {
+            "display_name": "On",
+            "value": "on"
+          },
+          {
+            "display_name": "All Speech",
+            "value": "speech"
+          },
+          {
+            "display_name": "All Music",
+            "value": "music"
+          }
+        ]
+      },
+      "pan": {
+        "display_name": "Stereo Panorama",
+        "type": "select",
+        "default_value": 0.0,
+        "belongs_to": "leveler",
+        "options": [
+          {
+            "display_name": "L100",
+            "value": "L100"
+          },
+          {
+            "display_name": "L75",
+            "value": "L75"
+          },
+          {
+            "display_name": "L50",
+            "value": "L50"
+          },
+          {
+            "display_name": "L25",
+            "value": "L25"
+          },
+          {
+            "display_name": "L20",
+            "value": "L20"
+          },
+          {
+            "display_name": "L15",
+            "value": "L15"
+          },
+          {
+            "display_name": "L10",
+            "value": "L10"
+          },
+          {
+            "display_name": "L05",
+            "value": "L05"
+          },
+          {
+            "display_name": "Center",
+            "value": "C"
+          },
+          {
+            "display_name": "R05",
+            "value": "R05"
+          },
+          {
+            "display_name": "R10",
+            "value": "R10"
+          },
+          {
+            "display_name": "R15",
+            "value": "R15"
+          },
+          {
+            "display_name": "R20",
+            "value": "R20"
+          },
+          {
+            "display_name": "R25",
+            "value": "R25"
+          },
+          {
+            "display_name": "R50",
+            "value": "R50"
+          },
+          {
+            "display_name": "R75",
+            "value": "R75"
+          },
+          {
+            "display_name": "R100",
+            "value": "R100"
+          }
+        ]
+      },
+      "normloudness": {
+        "display_name": "Loudness Normalization",
+        "type": "checkbox",
+        "default_value": true,
+        "description": "Adjusts the global, overall loudness to the specified Loudness Target, so that all processed files have a similar average loudness. Uses a True Peak Limiter."
+      },
+      "loudnesstarget": {
+        "display_name": "Loudness Target",
+        "type": "select",
+        "default_value": -16,
+        "belongs_to": "normloudness",
+        "options": [
+          {
+            "display_name": "-13 LUFS (very loud)",
+            "value": -13
+          },
+          {
+            "display_name": "-14 LUFS",
+            "value": -14
+          },
+          {
+            "display_name": "-15 LUFS",
+            "value": -15
+          },
+          {
+            "display_name": "-16 LUFS (Podcasts and Mobile)",
+            "value": -16
+          },
+          {
+            "display_name": "-18 LUFS (ReplayGain similarity)",
+            "value": -18
+          },
+          {
+            "display_name": "-19 LUFS",
+            "value": -19
+          },
+          {
+            "display_name": "-20 LUFS (Audible / ACX specs)",
+            "value": -20
+          },
+          {
+            "display_name": "-23 LUFS, EBU R128 (TV, Europe)",
+            "value": -23
+          },
+          {
+            "display_name": "-24 LUFS, ATSC A/85 (TV, US)",
+            "value": -24
+          },
+          {
+            "display_name": "-26 LUFS",
+            "value": -26
+          },
+          {
+            "display_name": "-27 LUFS (Netflix)",
+            "value": -27
+          },
+          {
+            "display_name": "-31 LUFS (very quiet)",
+            "value": -31
+          }
+        ]
+      },
+      "maxpeak": {
+        "display_name": "Maximum True Peak Level",
+        "type": "select",
+        "default_value": 99.0,
+        "belongs_to": "normloudness",
+        "options": [
+          {
+            "display_name": "Auto",
+            "value": 99.0
+          },
+          {
+            "display_name": "0 dBTP",
+            "value": 0.0
+          },
+          {
+            "display_name": "-0.5 dBTP",
+            "value": -0.5
+          },
+          {
+            "display_name": "-1 dBTP (EBU R128)",
+            "value": -1.0
+          },
+          {
+            "display_name": "-1.5 dBTP",
+            "value": -1.5
+          },
+          {
+            "display_name": "-2 dBTP (ATSC A/85)",
+            "value": -2.0
+          },
+          {
+            "display_name": "-3 dBTP",
+            "value": -3.0
+          },
+          {
+            "display_name": "-4 dBTP",
+            "value": -4.0
+          },
+          {
+            "display_name": "-5 dBTP",
+            "value": -5.0
+          },
+          {
+            "display_name": "-6 dBTP",
+            "value": -6.0
+          }
+        ]
+      },
+      "dualmono": {
+        "display_name": "Dual Mono",
+        "type": "checkbox",
+        "default_value": false,
+        "belongs_to": "normloudness"
+      },
+      "loudnessmethod": {
+        "display_name": "Loudness Normalization Method",
+        "type": "select",
+        "default_value": "program",
+        "belongs_to": "normloudness",
+        "options": [
+          {
+            "display_name": "Program Loudness",
+            "value": "program"
+          },
+          {
+            "display_name": "Dialog Loudness",
+            "value": "dialog"
+          }
+        ]
+      },
+      "backforeground": {
+        "display_name": "Fore/Background:",
+        "type": "select",
+        "default_value": 0,
+        "options": [
+          {
+            "display_name": 0,
+            "value": "auto"
+          },
+          {
+            "display_name": 1,
+            "value": "foreground"
+          },
+          {
+            "display_name": 2,
+            "value": "background"
+          },
+          {
+            "display_name": 3,
+            "value": "ducking"
+          },
+          {
+            "display_name": 4,
+            "value": "unchanged"
+          }
+        ],
+        "description": "The parameter Fore/Background controls whether a track should be in foreground, in background, ducked, or unchanged."
+      },
+      "gain": {
+        "display_name": "Track Gain",
+        "type": "select",
+        "default_value": 0,
+        "belongs_to": "backforeground",
+        "options": [
+          {
+            "display_name": 6,
+            "value": 6
+          },
+          {
+            "display_name": 5,
+            "value": 5
+          },
+          {
+            "display_name": 4,
+            "value": 4
+          },
+          {
+            "display_name": 3,
+            "value": 3
+          },
+          {
+            "display_name": 2,
+            "value": 2
+          },
+          {
+            "display_name": 0,
+            "value": 0
+          },
+          {
+            "display_name": -2,
+            "value": -2
+          },
+          {
+            "display_name": -3,
+            "value": -3
+          },
+          {
+            "display_name": -4,
+            "value": -4
+          },
+          {
+            "display_name": -5,
+            "value": -5
+          },
+          {
+            "display_name": -6,
+            "value": -6
+          },
+          {
+            "display_name": -8,
+            "value": -8
+          },
+          {
+            "display_name": -12,
+            "value": -12
+          },
+          {
+            "display_name": -15,
+            "value": -15
+          },
+          {
+            "display_name": -18,
+            "value": -18
+          },
+          {
+            "display_name": -23,
+            "value": -23
+          },
+          {
+            "display_name": -30,
+            "value": -30
+          }
+        ]
+      },
+      "backgroundgain": {
+        "display_name": "Background Level",
+        "type": "select",
+        "default_value": -18,
+        "belongs_to": "backforeground",
+        "options": [
+          {
+            "display_name": -3,
+            "value": -3
+          },
+          {
+            "display_name": -6,
+            "value": -6
+          },
+          {
+            "display_name": -8,
+            "value": -8
+          },
+          {
+            "display_name": -10,
+            "value": -10
+          },
+          {
+            "display_name": -12,
+            "value": -12
+          },
+          {
+            "display_name": -14,
+            "value": -14
+          },
+          {
+            "display_name": -16,
+            "value": -16
+          },
+          {
+            "display_name": -18,
+            "value": -18
+          },
+          {
+            "display_name": -20,
+            "value": -20
+          },
+          {
+            "display_name": -22,
+            "value": -22
+          },
+          {
+            "display_name": -24,
+            "value": -24
+          },
+          {
+            "display_name": -26,
+            "value": -26
+          }
+        ]
+      },
+      "ducking_fadetime": {
+        "display_name": "Ducking Fade Time",
+        "type": "select",
+        "default_value": 500,
+        "belongs_to": "backforeground",
+        "options": [
+          {
+            "display_name": 125,
+            "value": 125
+          },
+          {
+            "display_name": 250,
+            "value": 250
+          },
+          {
+            "display_name": 375,
+            "value": 375
+          },
+          {
+            "display_name": 500,
+            "value": 500
+          },
+          {
+            "display_name": 750,
+            "value": 750
+          },
+          {
+            "display_name": 1000,
+            "value": 1000
+          },
+          {
+            "display_name": 1500,
+            "value": 1500
+          },
+          {
+            "display_name": 2000,
+            "value": 2000
+          }
+        ]
+      },
+      "gate": {
+        "display_name": "Adaptive Noise Gate",
+        "type": "checkbox",
+        "default_value": true,
+        "description": "The Adaptive Noise Gate decreases the volume of segments where a speaker is inactive, but does not change segments where a speaker is active."
+      },
+      "crossgate": {
+        "display_name": "Crossgate",
+        "type": "checkbox",
+        "default_value": true,
+        "description": "When recording multiple people with multiple microphones in one room, the voice of speaker 1 will also be recorded in the microphone of speaker 2. This Crosstalk / Spill results in a reverb or echo-like effect in the final audio mixdown."
+      },
+      "cutter": {
+        "display_name": "Cutter",
+        "type": "checkbox",
+        "default_value": false,
+        "description": "Cuts silence or filler words"
+      },
+      "silence_cutter": {
+        "display_name": "Cut Silence",
+        "type": "checkbox",
+        "default_value": true,
+        "belongs_to": "cutter",
+        "description": "Cuts silence segments in input audio."
+      },
+      "filler_cutter": {
+        "display_name": "Cut Fillers",
+        "type": "checkbox",
+        "default_value": false,
+        "belongs_to": "cutter",
+        "description": "Cuts filler segments in input audio."
+      },
+      "export_uncut_audio": {
+        "display_name": "Apply Cuts",
+        "type": "checkbox",
+        "default_value": false,
+        "belongs_to": "cutter",
+        "description": "Wether cuts shall be applied."
+      }
+    },
+    "production_status": {
+      "0": "File Upload",
+      "1": "Waiting",
+      "2": "Error",
+      "3": "Done",
+      "4": "Audio Processing",
+      "5": "Audio Encoding",
+      "6": "Outgoing File Transfer",
+      "7": "Audio Mono Mixdown",
+      "8": "Split Audio On Chapter Marks",
+      "9": "Incomplete",
+      "10": "Production Not Started Yet",
+      "11": "Production Outdated",
+      "12": "Incoming File Transfer",
+      "13": "Stopping the Production",
+      "14": "Speech Recognition"
+    }
+  }
+}

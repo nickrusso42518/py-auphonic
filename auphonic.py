@@ -54,7 +54,7 @@ class Auphonic:
         which is INFO by default.
         """
 
-        # Craete a simple logger set to specific log level
+        # Create a simple logger set to specific log level
         logging.basicConfig(
             format="%(asctime)s %(levelname)-8s %(message)s",
             datefmt="%Y-%m-%d %H:%M:%S",
@@ -320,3 +320,23 @@ class Auphonic:
 
         # 0 bytes produced; signals failure
         return 0
+
+
+if __name__ == "__main__":
+
+    # JSON only needed for this test run, so don't import at top-level
+    import json
+
+    # Use class-level helper method to build new object (handy for shell runs)
+    auphonic = Auphonic.build_from_env_vars()
+
+    # Collect various generic resource data to ensure API is functional
+    for target in ["services", "info", "user"]:
+        data = auphonic.get(f"{target}.json")
+
+        # Write results to disk for reference
+        with open(f"data_ref/{target}.json", "w", encoding="utf-8") as output:
+            json.dump(data, output, indent=2)
+
+    # A bit sloppy; last target is 'user', so print credit count
+    print(f"Credit hours remaining: {round(data['data']['credits'], 2)}")

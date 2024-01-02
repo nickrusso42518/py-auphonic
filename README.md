@@ -75,7 +75,10 @@ with phony targets is used. Use the following shortcuts to test the playbook.
 It is recommend to run all tests immediately after cloning to save yourself
 the pain of discovering bugs during development.
   * `make lint`: Runs `pylint` for linting and `black` for code formatting
+  * `make conn`: Test API connectivity without spending any credits.
   * `make run`: Runs the `produce.py` script and prints the resulting files
   * `make clean`: Removes `*.pyc` files and produced Auphonic files.
      **DO NOT** use this for daily operations, generally only for testing.
   * `make` or `make test`: Runs `clean lint run` in that order
+  * `make ftest`: A quick "free" test that doesn't upload audio files, but
+    runs linting and API connectivity checks.
