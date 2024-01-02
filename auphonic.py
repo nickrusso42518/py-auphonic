@@ -179,7 +179,6 @@ class Auphonic:
 
         # For loop exhaused and did not find preset; create new one
         else:
-
             # Create new preset and print UUID for confirmation
             self.logger.info("Preset %s not found; creating now", new_name)
             add_preset = self.post("presets.json", jsonbody=new_preset)
@@ -323,7 +322,6 @@ class Auphonic:
 
 
 if __name__ == "__main__":
-
     # JSON only needed for this test run, so don't import at top-level
     import json
 
