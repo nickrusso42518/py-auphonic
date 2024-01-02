@@ -8,9 +8,10 @@ install:
   - "sudo apt-get -y install tree"
   - "pip install -r requirements.txt"
 
-# Perform linting, and abandon execution if it fails
+# Perform linting and conn checks, and abandon execution if they fail
 before_script:
   - "make lint"
+  - "make conn"
 
 # Produce the test file (can add more test scripts later)
 script:
