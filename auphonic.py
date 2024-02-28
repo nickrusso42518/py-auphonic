@@ -97,23 +97,12 @@ class Auphonic:
           3. AUPHONIC_INPUT_DIR: Local path to audio input files (optional)
         """
 
-        # Collect username, password, and input directory from env vars
-        username = os.environ.get("AUPHONIC_USERNAME")
-        if not username:
-            raise ValueError("Must define AUPHONIC_USERNAME environment var")
-
-        password = os.environ.get("AUPHONIC_PASSWORD")
-        if not password:
-            raise ValueError("Must define AUPHONIC_PASSWORD environment var")
-
-        # Collect input directory, defaulting to None if not defined
-        input_dir = os.environ.get("AUPHONIC_INPUT_DIR")
-
-        # Create and return new Auphonic object
+        # Create and return new Auphonic object. No username/password will
+        # raise KeyError. No input dir just uses None.
         return Auphonic(
-            username=username,
-            password=password,
-            input_dir=input_dir,
+            username=os.environ["AUPHONIC_USERNAME"],
+            password=os.environ["AUPHONIC_PASSWORD"],
+            input_dir=os.environ.get("AUPHONIC_INPUT_DIR"),
             log_level=log_level,
         )
 
@@ -158,10 +147,6 @@ class Auphonic:
         Creates a new preset using the supplied dictionary. If the preset
         already exists, nothing happens. Otherwise, a new preset is created.
         """
-
-        # Perform a quick check to ensure the preset has a required key
-        if "preset_name" not in new_preset.keys():
-            raise ValueError("Preset is missing required 'preset_name' key")
 
         # Store preset name and collect list of current presets
         new_name = new_preset["preset_name"].lower()
