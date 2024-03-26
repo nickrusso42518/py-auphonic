@@ -87,8 +87,8 @@ class Auphonic:
 
         self.logger.info("Completed auphonic for user %s, id %s", username, _id)
 
-    @staticmethod
-    def build_from_env_vars(log_level=logging.INFO):
+    @classmethod
+    def build_from_env_vars(cls, log_level=logging.INFO):
         """
         Static class-level helper method to quickly create a new Auphonic
         object using environment variables:
@@ -99,7 +99,7 @@ class Auphonic:
 
         # Create and return new Auphonic object. No username/password will
         # raise KeyError. No input dir just uses None.
-        return Auphonic(
+        return cls(
             username=os.environ["AUPHONIC_USERNAME"],
             password=os.environ["AUPHONIC_PASSWORD"],
             input_dir=os.environ.get("AUPHONIC_INPUT_DIR"),
